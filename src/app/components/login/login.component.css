@@ -1,0 +1,13 @@
+.custom-blue-btn {
+  background-color: #3498DB !important;
+  color: white !important;
+  border: none !important;
+  border-radius: 5px !important;
+}
+.custom-blue-btn:hover {
+  background-color: #2980b9 !important;
+}
+
+.custom-input {
+    border-radius: 5px !important;
+}

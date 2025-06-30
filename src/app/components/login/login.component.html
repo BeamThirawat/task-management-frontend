@@ -1,0 +1,38 @@
+<div class="flex items-center justify-center h-screen">
+  <main class="w-[350px] bg-white rounded-md p-12 shadow-2xl">
+    <div class="text-black text-[26px] font-semibold text-center mb-8">
+      <h2>🔐 เข้าสู่ระบบ</h2>
+    </div>
+    <!-- form -->
+    <form>
+      <div class="flex flex-col text-[#555555] mb-4">
+        <label class="mb-1 text-[16px]">อีเมล</label>
+        <input
+          nz-input
+          nzSize="large"
+          type="email"
+          placeholder="you@example.com"
+          class="w-full mb-4 custom-input"
+        />
+      </div>
+      <div class="flex flex-col text-[#555555] mb-5">
+        <label class="mb-1 text-[16px]">รหัสผ่าน</label>
+        <input
+          nz-input
+          nzSize="large"
+          type="password"
+          placeholder="••••••••"
+          class="w-full mb-4 custom-input"
+        />
+      </div>
+      <button
+        nz-button
+        nzType="default"
+        nzSize="large"
+        class="w-full custom-blue-btn"
+      >
+        เข้าสู่ระบบ
+      </button>
+    </form>
+  </main>
+</div>
