@@ -3,9 +3,9 @@ import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzDividerModule } from 'ng-zorro-antd/divider';
 import { NzIconModule } from 'ng-zorro-antd/icon';
-import { LanguageThemeToggleComponent } from '../../shared/language-theme-toggle/language-theme-toggle.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -14,9 +14,9 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
     NzButtonModule,
     NzDividerModule,
     NzIconModule,
-    LanguageThemeToggleComponent,
     TranslateModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterModule
   ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',

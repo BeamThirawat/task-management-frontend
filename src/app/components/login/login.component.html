@@ -1,90 +1,83 @@
-<!-- Toggle button component-->
-<div class="absolute top-6 right-6 z-10">
-  <app-language-theme-toggle></app-language-theme-toggle>
-</div>
-<!-- main Layout -->
-<div class="flex items-center justify-center h-screen">
-  <main class="w-[400px] bg-white rounded-lg p-12 shadow-2xl">
-    <div class="text-black text-center mb-8">
-      <h1 class="text-[22px] font-extrabold">
-        {{ "LOGIN.SYSTEM" | translate }}
-      </h1>
-      <h2 class="text-[26px] font-semibold">
-        🔐 {{ "LOGIN.TITLE" | translate }}
-      </h2>
-    </div>
-    <!-- form -->
-    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-      <div class="flex flex-col text-[#555555] mb-4">
-        <label class="mb-1 text-[16px]">{{ "LOGIN.EMAIL" | translate }}</label>
-        <input
-          nz-input
-          formControlName="email"
-          nzSize="large"
-          type="email"
-          placeholder="you@example.com"
-          class="w-full mb-4 custom-input"
-        />
-      </div>
-      <div class="flex flex-col text-[#555555] mb-5">
-        <label class="mb-1 text-[16px]">{{
-          "LOGIN.PASSWORD" | translate
-        }}</label>
-        <nz-input-group
-          class="custom-input"
-          nzSize="large"
-          [nzSuffix]="suffixIcon"
-        >
-          <input
-            [type]="passwordVisible ? 'text' : 'password'"
-            nz-input
-            formControlName="password"
-            nzSize="large"
-            placeholder="•••••••••••"
-          />
-        </nz-input-group>
-        <ng-template #suffixIcon>
-          <nz-icon
-            [nzType]="passwordVisible ? 'eye-invisible' : 'eye'"
-            nzTheme="outline"
-            class="cursor-pointer text-[#888]"
-            (click)="passwordVisible = !passwordVisible"
-          ></nz-icon>
-        </ng-template>
-      </div>
-      <!-- login button -->
-      <button
-        nz-button
-        nzType="default"
+<main class="w-[400px] bg-white rounded-lg p-12 shadow-2xl">
+  <div class="text-black text-center mb-8">
+    <h1 class="text-[22px] font-extrabold">
+      {{ "LOGIN.SYSTEM" | translate }}
+    </h1>
+    <h2 class="text-[26px] font-semibold">
+      🔐 {{ "LOGIN.TITLE" | translate }}
+    </h2>
+  </div>
+  <!-- form -->
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <div class="flex flex-col text-[#555555] mb-4">
+      <label class="mb-1 text-[16px]">{{ "LOGIN.EMAIL" | translate }}</label>
+      <input
+        nz-input
+        formControlName="email"
         nzSize="large"
-        class="w-full custom-blue-btn"
-      >
-        {{ "LOGIN.TITLE" | translate }}
-      </button>
-    </form>
-    <!-- divider -->
-    <div class="my-6">
-      <nz-divider
-        nzPlain
-        nzText="{{ 'LOGIN.OR' | translate }}"
-        class="custom-divider"
-      ></nz-divider>
+        type="email"
+        placeholder="you@example.com"
+        class="w-full mb-4 custom-input"
+      />
     </div>
-    <!-- login google button -->
+    <div class="flex flex-col text-[#555555] mb-5">
+      <label class="mb-1 text-[16px]">{{ "LOGIN.PASSWORD" | translate }}</label>
+      <nz-input-group
+        class="custom-input"
+        nzSize="large"
+        [nzSuffix]="suffixIcon"
+      >
+        <input
+          [type]="passwordVisible ? 'text' : 'password'"
+          nz-input
+          formControlName="password"
+          nzSize="large"
+          placeholder="•••••••••••"
+        />
+      </nz-input-group>
+      <ng-template #suffixIcon>
+        <nz-icon
+          [nzType]="passwordVisible ? 'eye-invisible' : 'eye'"
+          nzTheme="outline"
+          class="cursor-pointer text-[#888]"
+          (click)="passwordVisible = !passwordVisible"
+        ></nz-icon>
+      </ng-template>
+    </div>
+    <!-- login button -->
     <button
       nz-button
       nzType="default"
       nzSize="large"
-      class="w-full custom-login-google"
+      class="w-full custom-blue-btn"
     >
-      <nz-icon nzType="google" />
-      {{ "LOGIN.GOOGLE" | translate }}
+      {{ "LOGIN.TITLE" | translate }}
     </button>
+  </form>
+  <!-- divider -->
+  <div class="my-6">
+    <nz-divider
+      nzPlain
+      nzText="{{ 'LOGIN.OR' | translate }}"
+      class="custom-divider"
+    ></nz-divider>
+  </div>
+  <!-- login google button -->
+  <button
+    nz-button
+    nzType="default"
+    nzSize="large"
+    class="w-full custom-login-google"
+  >
+    <nz-icon nzType="google" />
+    {{ "LOGIN.GOOGLE" | translate }}
+  </button>
 
-    <!-- Link Register -->
-    <div class="flex items-center justify-center mt-4">
-      <div class="font-semibold">{{ "LOGIN.QUESTION" | translate }}</div>
-      <a nz-button nzType="link">{{ "LOGIN.REGISTER" | translate }}</a>
-    </div>
-  </main>
-</div>
+  <!-- Link Register -->
+  <div class="flex items-center justify-center mt-2">
+    <div class="font-semibold">{{ "LOGIN.QUESTION" | translate }}</div>
+    <a routerLink="/register" nz-button nzType="link">{{
+      "LOGIN.REGISTER" | translate
+    }}</a>
+  </div>
+</main>
