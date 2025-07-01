@@ -1,16 +1,17 @@
-<main class="w-[400px] bg-white rounded-lg p-12 shadow-2xl">
-  <div class="text-black text-center mb-8">
-    <h1 class="text-[22px] font-extrabold">
+<main class="w-full max-w-[500px] bg-white rounded-lg p-6 sm:p-12 shadow-2xl mx-4 sm:mx-0">
+  <div class="text-black text-center mb-6 sm:mb-8">
+    <h1 class="text-lg sm:text-[22px] font-extrabold">
       {{ "LOGIN.SYSTEM" | translate }}
     </h1>
-    <h2 class="text-[26px] font-semibold">
+    <h2 class="text-xl sm:text-[26px] font-semibold">
       🔐 {{ "LOGIN.TITLE" | translate }}
     </h2>
   </div>
+
   <!-- form -->
   <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
     <div class="flex flex-col text-[#555555] mb-4">
-      <label class="mb-1 text-[16px]">{{ "LOGIN.EMAIL" | translate }}</label>
+      <label class="mb-1 text-sm sm:text-[16px]">{{ "LOGIN.EMAIL" | translate }}</label>
       <input
         nz-input
         formControlName="email"
@@ -20,8 +21,9 @@
         class="w-full mb-4 custom-input"
       />
     </div>
+
     <div class="flex flex-col text-[#555555] mb-5">
-      <label class="mb-1 text-[16px]">{{ "LOGIN.PASSWORD" | translate }}</label>
+      <label class="mb-1 text-sm sm:text-[16px]">{{ "LOGIN.PASSWORD" | translate }}</label>
       <nz-input-group
         class="custom-input"
         nzSize="large"
@@ -44,6 +46,7 @@
         ></nz-icon>
       </ng-template>
     </div>
+
     <!-- login button -->
     <button
       nz-button
@@ -54,6 +57,7 @@
       {{ "LOGIN.TITLE" | translate }}
     </button>
   </form>
+
   <!-- divider -->
   <div class="my-6">
     <nz-divider
@@ -62,6 +66,7 @@
       class="custom-divider"
     ></nz-divider>
   </div>
+
   <!-- login google button -->
   <button
     nz-button
@@ -74,10 +79,10 @@
   </button>
 
   <!-- Link Register -->
-  <div class="flex items-center justify-center mt-2">
-    <div class="font-semibold">{{ "LOGIN.QUESTION" | translate }}</div>
-    <a routerLink="/register" nz-button nzType="link">{{
-      "LOGIN.REGISTER" | translate
-    }}</a>
+  <div class="flex items-center justify-center mt-4 gap-2 text-sm sm:text-base">
+    <div class="font-semibold text-[14px]">{{ "LOGIN.QUESTION" | translate }}</div>
+    <a routerLink="/register" nz-button nzType="link">
+      {{ "LOGIN.REGISTER" | translate }}
+    </a>
   </div>
 </main>
