@@ -5,6 +5,7 @@ import { NzDividerModule } from 'ng-zorro-antd/divider';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { LanguageThemeToggleComponent } from '../../shared/language-theme-toggle/language-theme-toggle.component';
 import { TranslateModule } from '@ngx-translate/core';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -14,11 +15,12 @@ import { TranslateModule } from '@ngx-translate/core';
     NzDividerModule,
     NzIconModule,
     LanguageThemeToggleComponent,
-    TranslateModule
+    TranslateModule,
+    FormsModule
   ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',
 })
 export class LoginComponent {
-  
+  passwordVisible = false;
 }
