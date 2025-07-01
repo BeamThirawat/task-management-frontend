@@ -8,5 +8,26 @@
     "GOOGLE": "เข้าสู่ระบบด้วย Google",
     "QUESTION": "ยังไม่มีบัญชี?",
     "REGISTER": "สมัครสมาชิก"
+  },
+  "REGISTER" : {
+    "TITLE": "สมัครสมาชิก",
+    "USERNAME": "ชื่อผู้ใช้",
+    "EMAIL": "อีเมล",
+    "PASSWORD": "รหัสผ่าน",
+    "CONFIRM_PASSWORD": "ยืนยันรหัสผ่าน",
+    "OR": "หรือ",
+    "GOOGLE": "สมัครด้วย Google",
+    "QUESTION": "มีบัญชีแล้ว?",
+    "LOGIN": "เข้าสู่ระบบ",
+    "USERNAME_PLACE": "กรอกชื่อผู้ใช้"
+  },
+  "VALIDATE" : {
+    "EMAIL": "กรุณากรอกอีเมล",
+    "USERNAME": "กรุณากรอกชื่อผู้ใช้",
+    "PASSWORD": "กรุณากรอกรหัสผ่าน",
+    "CONFIRM_PASSWORD": "กรุณากรอกยืนยันรหัสผ่าน",
+    "EMAIL_INVALID": "กรุณากรอกที่อยู่อีเมลที่ถูกต้อง",
+    "PASSWORD_MIN_LENGTH": "รหัสผ่านต้องมีอย่างน้อย 6 ตัวอักษร",
+    "PASSWORD_MISMATCH": "รหัสผ่านไม่ตรงกัน"
   }
 }

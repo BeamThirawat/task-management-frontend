@@ -8,6 +8,7 @@ export const routes: Routes = [
     path: '',
     component: AuthLayoutComponent,
     children: [
+      { path: '', redirectTo: 'login', pathMatch: 'full' },
       { path: 'login', component: LoginComponent },
       { path: 'register', component: RegisterComponent },
     ],
@@ -15,5 +16,6 @@ export const routes: Routes = [
   {
     path: '**',
     redirectTo: 'login',
+    pathMatch: 'full',
   },
 ];
