@@ -7,6 +7,8 @@ import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-transla
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ICONS } from './app/shared/icons/icons';
+import { NzIconModule } from 'ng-zorro-antd/icon';
 
 export function httpTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './i18n/', '.json');
@@ -23,7 +25,8 @@ bootstrapApplication(AppComponent, {
           useFactory: httpTranslateLoader,
           deps: [HttpClient]
         }
-      })
+      }),
+      NzIconModule.forRoot(ICONS)
     )
   ]
 });

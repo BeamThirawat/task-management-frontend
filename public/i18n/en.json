@@ -1,4 +1,12 @@
 {
-  "TITLE": "Welcome",
-  "BUTTON": "Click me"
+  "LOGIN" : {
+    "SYSTEM": "Task Management System",
+    "TITLE": "Sign In",
+    "EMAIL": "Email",
+    "PASSWORD": "Password",
+    "OR": "Or",
+    "GOOGLE": "Sign In With Google",
+    "QUESTION": "Don't have an account?",
+    "REGISTER": "Register"
+  }
 }

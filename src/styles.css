@@ -4,8 +4,17 @@
 
 @theme {
     --font-sarabun: "Sarabun", "sans-serif";
+    --color-background: var(--background)
 }
 
 body {
     font-family: var(--font-sarabun);
+}
+
+:root {
+    --background: #e8e8e8;
+}
+
+.dark {
+    --background: #212121;
 }
