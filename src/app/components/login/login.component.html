@@ -1,12 +1,18 @@
+<!-- Toggle button component-->
+<div class="absolute top-6 right-6 z-10">
+  <app-language-theme-toggle></app-language-theme-toggle>
+</div>
+<!-- main Layout -->
 <div class="flex items-center justify-center h-screen">
-  <main class="w-[350px] bg-white rounded-md p-12 shadow-2xl">
-    <div class="text-black text-[26px] font-semibold text-center mb-8">
-      <h2>🔐 เข้าสู่ระบบ</h2>
+  <main class="w-[400px] bg-white rounded-lg p-12 shadow-2xl">
+    <div class="text-black text-center mb-8">
+      <h1 class="text-[22px] font-extrabold">{{'LOGIN.SYSTEM' | translate}}</h1>
+      <h2 class="text-[26px] font-semibold">🔐 {{'LOGIN.TITLE' | translate}}</h2>
     </div>
     <!-- form -->
     <form>
       <div class="flex flex-col text-[#555555] mb-4">
-        <label class="mb-1 text-[16px]">อีเมล</label>
+        <label class="mb-1 text-[16px]">{{'LOGIN.EMAIL' | translate}}</label>
         <input
           nz-input
           nzSize="large"
@@ -16,7 +22,7 @@
         />
       </div>
       <div class="flex flex-col text-[#555555] mb-5">
-        <label class="mb-1 text-[16px]">รหัสผ่าน</label>
+        <label class="mb-1 text-[16px]">{{'LOGIN.PASSWORD' | translate}}</label>
         <input
           nz-input
           nzSize="large"
@@ -25,14 +31,35 @@
           class="w-full mb-4 custom-input"
         />
       </div>
+      <!-- login button -->
       <button
         nz-button
         nzType="default"
         nzSize="large"
         class="w-full custom-blue-btn"
       >
-        เข้าสู่ระบบ
+        {{'LOGIN.TITLE' | translate}}
       </button>
     </form>
+    <!-- divider -->
+    <div class="my-6">
+      <nz-divider nzPlain nzText="{{'LOGIN.OR' | translate}}" class="custom-divider"></nz-divider>
+    </div>
+    <!-- login google button -->
+    <button
+      nz-button
+      nzType="default"
+      nzSize="large"
+      class="w-full custom-login-google"
+    >
+      <nz-icon nzType="google" />
+      {{'LOGIN.GOOGLE' | translate}}
+    </button>
+
+    <!-- Link Register -->
+    <div class="flex items-center justify-center mt-4">
+      <div class="font-semibold">{{'LOGIN.QUESTION' | translate}}</div>
+      <a nz-button nzType="link">{{'LOGIN.REGISTER' | translate}}</a>
+    </div>
   </main>
 </div>

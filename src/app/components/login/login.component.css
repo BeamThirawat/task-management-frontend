@@ -11,3 +11,19 @@
 .custom-input {
     border-radius: 5px !important;
 }
+
+.custom-divider {
+  color: #999 !important;
+  border-color: #ddd !important;
+}
+
+.custom-login-google {
+  background-color: #db4437 !important;
+  color: white !important;
+  border-radius: 5px !important;
+  border: none !important;
+}
+
+.custom-login-google:hover {
+  background-color: #c23321 !important;
+}
