@@ -14,11 +14,12 @@
       </h2>
     </div>
     <!-- form -->
-    <form>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
       <div class="flex flex-col text-[#555555] mb-4">
         <label class="mb-1 text-[16px]">{{ "LOGIN.EMAIL" | translate }}</label>
         <input
           nz-input
+          formControlName="email"
           nzSize="large"
           type="email"
           placeholder="you@example.com"
@@ -37,6 +38,7 @@
           <input
             [type]="passwordVisible ? 'text' : 'password'"
             nz-input
+            formControlName="password"
             nzSize="large"
             placeholder="•••••••••••"
           />

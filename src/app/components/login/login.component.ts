@@ -5,7 +5,7 @@ import { NzDividerModule } from 'ng-zorro-antd/divider';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { LanguageThemeToggleComponent } from '../../shared/language-theme-toggle/language-theme-toggle.component';
 import { TranslateModule } from '@ngx-translate/core';
-import { FormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -16,11 +16,25 @@ import { FormsModule } from '@angular/forms';
     NzIconModule,
     LanguageThemeToggleComponent,
     TranslateModule,
-    FormsModule
+    ReactiveFormsModule
   ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',
 })
 export class LoginComponent {
   passwordVisible = false;
+  loginForm: FormGroup;
+
+  constructor(private fb: FormBuilder) {
+    this.loginForm = fb.group({
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required]]
+    })
+  }
+
+  onSubmit() {
+    if (this.loginForm.valid) {
+      console.log(this.loginForm.value);
+    }
+  }
 }
