@@ -1,1 +1,189 @@
-<p>register works!</p>
+<main
+  class="w-full max-w-[400px] bg-white rounded-lg p-4 sm:p-12 shadow-2xl mx-4 sm:mx-0"
+>
+  <div class="text-black text-center mb-6 sm:mb-8">
+    <h2 class="text-xl sm:text-[26px] font-semibold">
+      🔐 {{ "REGISTER.TITLE" | translate }}
+    </h2>
+  </div>
+
+  <form
+    [formGroup]="registerForm"
+    (ngSubmit)="onSubmit()"
+    nz-form
+    [nzLayout]="'vertical'"
+  >
+    <!-- Username -->
+    <nz-form-item>
+      <nz-form-label [nzSpan]="24" nzFor="username">
+        {{ "REGISTER.USERNAME" | translate }}
+      </nz-form-label>
+      <nz-form-control
+        [nzSpan]="24"
+        [nzValidateStatus]="registerForm.get('username')!"
+      >
+        <input
+          nz-input
+          formControlName="username"
+          id="username"
+          nzSize="large"
+          [placeholder]="'REGISTER.USERNAME_PLACE' | translate"
+        />
+        <div
+          *ngIf="
+            registerForm.get('username')?.hasError('required') &&
+            registerForm.get('username')?.touched
+          "
+          class="ant-form-item-explain-error"
+        >
+          {{ "VALIDATE.USERNAME" | translate }}
+        </div>
+      </nz-form-control>
+    </nz-form-item>
+
+    <!-- Email -->
+    <nz-form-item>
+      <nz-form-label [nzSpan]="24" nzFor="email">{{
+        "REGISTER.EMAIL" | translate
+      }}</nz-form-label>
+      <nz-form-control
+        [nzSpan]="24"
+        [nzValidateStatus]="registerForm.get('email')!"
+      >
+        <input
+          nz-input
+          formControlName="email"
+          id="email"
+          nzSize="large"
+          placeholder="you@example.com"
+        />
+        <div
+          *ngIf="
+            registerForm.get('email')?.hasError('required') &&
+            registerForm.get('email')?.touched
+          "
+          class="ant-form-item-explain-error"
+        >
+          {{ "VALIDATE.EMAIL" | translate }}
+        </div>
+        <div
+          *ngIf="registerForm.get('email')?.hasError('email')"
+          class="ant-form-item-explain-error"
+        >
+          {{ "VALIDATE.EMAIL_INVALID" | translate }}
+        </div>
+      </nz-form-control>
+    </nz-form-item>
+
+    <!-- Password -->
+    <nz-form-item>
+      <nz-form-label [nzSpan]="24" nzFor="password">{{
+        "REGISTER.PASSWORD" | translate
+      }}</nz-form-label>
+      <nz-form-control
+        [nzSpan]="24"
+        [nzValidateStatus]="registerForm.get('password')!"
+      >
+        <input
+          nz-input
+          formControlName="password"
+          id="password"
+          nzSize="large"
+          type="password"
+          placeholder="•••••••••••"
+        />
+        <div
+          *ngIf="
+            registerForm.get('password')?.hasError('required') &&
+            registerForm.get('password')?.touched
+          "
+          class="ant-form-item-explain-error"
+        >
+          {{ "VALIDATE.PASSWORD" | translate }}
+        </div>
+        <div
+          *ngIf="registerForm.get('password')?.hasError('minlength')"
+          class="ant-form-item-explain-error"
+        >
+          {{ "VALIDATE.PASSWORD_MIN_LENGTH" | translate }}
+        </div>
+      </nz-form-control>
+    </nz-form-item>
+
+    <!-- Confirm Password -->
+    <nz-form-item>
+      <nz-form-label [nzSpan]="24" nzFor="confirmPassword">{{
+        "REGISTER.CONFIRM_PASSWORD" | translate
+      }}</nz-form-label>
+      <nz-form-control
+        [nzSpan]="24"
+        [nzValidateStatus]="
+          registerForm.hasError('passwordMismatch') &&
+          registerForm.get('confirmPassword')?.touched
+            ? 'error'
+            : registerForm.get('confirmPassword')!
+        "
+      >
+        <input
+          nz-input
+          formControlName="confirmPassword"
+          id="confirmPassword"
+          nzSize="large"
+          type="password"
+          placeholder="•••••••••••"
+        />
+        <div *ngIf="registerForm.get('confirmPassword')?.touched">
+          <div
+            *ngIf="
+              registerForm.get('confirmPassword')?.hasError('required');
+              else mismatch
+            "
+            class="ant-form-item-explain-error"
+          >
+            {{ "VALIDATE.CONFIRM_PASSWORD" | translate }}
+          </div>
+
+          <ng-template #mismatch>
+            <div
+              *ngIf="registerForm.hasError('passwordMismatch')"
+              class="ant-form-item-explain-error"
+            >
+              {{ "VALIDATE.PASSWORD_MISMATCH" | translate }}
+            </div>
+          </ng-template>
+        </div>
+      </nz-form-control>
+    </nz-form-item>
+
+    <!-- Register button -->
+    <button nz-button nzType="primary" nzSize="large" class="w-full mt-4">
+      {{ "REGISTER.TITLE" | translate }}
+    </button>
+  </form>
+
+  <!-- Divider -->
+  <div class="my-6">
+    <nz-divider nzPlain nzText="{{ 'REGISTER.OR' | translate }}"></nz-divider>
+  </div>
+
+  <!-- Google register -->
+  <button
+    nz-button
+    nzType="default"
+    nzSize="large"
+    class="w-full custom-login-google"
+  >
+    <nz-icon nzType="google" class="mr-2" />
+    {{ "REGISTER.GOOGLE" | translate }}
+  </button>
+
+  <!-- Link to login -->
+  <div class="flex items-center justify-center mt-4 gap-2 text-sm sm:text-base">
+    <div class="font-semibold text-[14px]">
+      {{ "REGISTER.QUESTION" | translate }}
+    </div>
+    <a routerLink="/login" nz-button nzType="link">
+      {{ "REGISTER.LOGIN" | translate }}
+    </a>
+  </div>
+</main>

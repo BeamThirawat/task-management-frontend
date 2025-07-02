@@ -1,4 +1,33 @@
 {
-  "TITLE": "Welcome",
-  "BUTTON": "Click me"
+  "LOGIN" : {
+    "SYSTEM": "Task Management System",
+    "TITLE": "Sign In",
+    "EMAIL": "Email",
+    "PASSWORD": "Password",
+    "OR": "Or",
+    "GOOGLE": "Sign In With Google",
+    "QUESTION": "Don't have an account?",
+    "REGISTER": "Register"
+  },
+  "REGISTER" : {
+    "TITLE": "Sign Up",
+    "USERNAME": "Username",
+    "EMAIL": "Email",
+    "PASSWORD": "Password",
+    "CONFIRM_PASSWORD": "Confirm Password",
+    "OR": "Or",
+    "GOOGLE": "Sign Up With Google",
+    "QUESTION": "have an account?",
+    "LOGIN": "Login",
+    "USERNAME_PLACE": "Your Username"
+  },
+  "VALIDATE" : {
+    "EMAIL": "Please enter your email",
+    "USERNAME": "Please enter your username",
+    "PASSWORD": "Please enter your password",
+    "CONFIRM_PASSWORD": "Please enter your comfirm password",
+    "EMAIL_INVALID": "Please enter a valid email address.",
+    "PASSWORD_MIN_LENGTH": "Password must be at least 6 characters long.",
+    "PASSWORD_MISMATCH": "Passwords do not match."
+  }
 }
