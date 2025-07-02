@@ -4,8 +4,15 @@ import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzDividerModule } from 'ng-zorro-antd/divider';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { TranslateModule } from '@ngx-translate/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { NzFormModule } from 'ng-zorro-antd/form';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +23,9 @@ import { RouterModule } from '@angular/router';
     NzIconModule,
     TranslateModule,
     ReactiveFormsModule,
-    RouterModule
+    RouterModule,
+    NzFormModule,
+    NgIf,
   ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',
@@ -26,15 +35,17 @@ export class LoginComponent {
   loginForm: FormGroup;
 
   constructor(private fb: FormBuilder) {
-    this.loginForm = fb.group({
+    this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required]]
-    })
+      password: ['', [Validators.required]],
+    });
   }
 
   onSubmit() {
-    if (this.loginForm.valid) {
-      console.log(this.loginForm.value);
+    if (this.loginForm.invalid) {
+      this.loginForm.markAllAsTouched();
+      return;
     }
+    console.log(this.loginForm.value);
   }
 }
