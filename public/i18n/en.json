@@ -1,4 +1,6 @@
 {
+  "SUCCESS": "Success",
+  "ERROR": "Error",
   "LOGIN" : {
     "SYSTEM": "Task Management System",
     "TITLE": "Sign In",
@@ -19,7 +21,9 @@
     "GOOGLE": "Sign Up With Google",
     "QUESTION": "have an account?",
     "LOGIN": "Login",
-    "USERNAME_PLACE": "Your Username"
+    "USERNAME_PLACE": "Your Username",
+    "CREATE_SUCCESS": "Sign Up Success",
+    "CREATE_FAIL": "Sign Up Fail! Please try agin."
   },
   "VALIDATE" : {
     "EMAIL": "Please enter your email",
