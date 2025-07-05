@@ -23,18 +23,21 @@ export class AuthService {
 
   login(data: Login): Observable<IResponse<ILogin>> {
     return this.http
-      .post<any>(`${this.ApiEndpoint}/auth/login`, data)
+      .post<any>(`${this.ApiEndpoint}/auth/login`, data, {
+        withCredentials: true,
+      })
       .pipe(timeout(this.ApiTimeout), retry(this.ApiRetry));
   }
 
   logout(): Observable<IResponse<any>> {
     return this.http
-    .post<any>(`${this.ApiEndpoint}/auth/logout`, {})
-    .pipe(timeout(this.ApiTimeout), retry(this.ApiRetry))
+      .post<any>(`${this.ApiEndpoint}/auth/logout`, {})
+      .pipe(timeout(this.ApiTimeout), retry(this.ApiRetry));
   }
 
-  loginWithGoogle() :Observable<IResponse<any>> {
-    return this.http.get(`${this.ApiEndpoint}/auth/google`)
-    .pipe(timeout(this.ApiTimeout), retry(this.ApiRetry))
+  loginWithGoogle(): void {
+    const redirectUri = encodeURIComponent('http://localhost:4200/dashboard');
+    const url = `${this.ApiEndpoint}/auth/google?redirect_uri=${redirectUri}`;
+    window.location.href = url;
   }
 }

@@ -9,7 +9,8 @@
     "OR": "Or",
     "GOOGLE": "Sign In With Google",
     "QUESTION": "Don't have an account?",
-    "REGISTER": "Register"
+    "REGISTER": "Register",
+    "LOGIN_FAIL": "Login Fail, Please try agin"
   },
   "REGISTER" : {
     "TITLE": "Sign Up",
