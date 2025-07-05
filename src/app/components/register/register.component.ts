@@ -72,6 +72,10 @@ export class RegisterComponent {
     this.processRegister(this.registerForm.getRawValue());
   }
 
+  onLoginWithGoogle() {
+    this.authService.loginWithGoogle();
+  }
+
   processRegister(fRegisterValue: Register) {
     this.islodding = true;
     let fRegister: Register = new Register();

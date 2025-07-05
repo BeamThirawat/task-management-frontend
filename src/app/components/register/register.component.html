@@ -29,6 +29,7 @@
             id="username"
             nzSize="large"
             [placeholder]="'REGISTER.USERNAME_PLACE' | translate"
+            autocomplete="current-password"
           />
           <div
             *ngIf="
@@ -57,6 +58,7 @@
             id="email"
             nzSize="large"
             placeholder="you@example.com"
+            autocomplete="current-password"
           />
           <div
             *ngIf="
@@ -92,6 +94,7 @@
             nzSize="large"
             type="password"
             placeholder="•••••••••••"
+            autocomplete="current-password"
           />
           <div
             *ngIf="
@@ -132,6 +135,7 @@
             nzSize="large"
             type="password"
             placeholder="•••••••••••"
+            autocomplete="current-password"
           />
           <div *ngIf="registerForm.get('confirmPassword')?.touched">
             <div
@@ -170,7 +174,7 @@
 
     <!-- Divider -->
     <div class="my-6">
-      <nz-divider nzPlain nzText="{{ 'REGISTER.OR' | translate }}"></nz-divider>
+      <nz-divider nzPlain nzText="{{ 'REGISTER.OR' | translate }}" class="custom-divider"></nz-divider>
     </div>
 
     <!-- Google register -->
@@ -179,6 +183,7 @@
       nzType="default"
       nzSize="large"
       class="w-full custom-login-google"
+      (click)="onLoginWithGoogle()"
     >
       <nz-icon nzType="google" class="mr-2" />
       {{ "REGISTER.GOOGLE" | translate }}
