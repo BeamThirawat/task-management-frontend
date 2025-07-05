@@ -1,139 +1,150 @@
-<main
-  class="w-full max-w-[500px] bg-white rounded-lg p-6 sm:p-12 shadow-2xl mx-4 sm:mx-0"
->
-  <div class="text-black text-center mb-6 sm:mb-8">
-    <h1 class="text-lg sm:text-[22px] font-extrabold">
-      {{ "LOGIN.SYSTEM" | translate }}
-    </h1>
-    <h2 class="text-xl sm:text-[26px] font-semibold">
-      🔐 {{ "LOGIN.TITLE" | translate }}
-    </h2>
-  </div>
-
-  <!-- form -->
-  <form
-    [formGroup]="loginForm"
-    (ngSubmit)="onSubmit()"
-    nz-form
-    [nzLayout]="'vertical'"
+<nz-spin nzSize="large" [nzSpinning]="isLodding" [nzDelay]="500">
+  <main
+    class="w-full max-w-[500px] bg-white rounded-lg p-6 sm:p-12 shadow-2xl mx-4 sm:mx-0"
   >
-    <nz-form-item>
-      <nz-form-label
-        nzSpan="24"
-        nzFor="email"
-        >{{ "LOGIN.EMAIL" | translate }}</nz-form-label
-      >
-      <nz-form-control
-        [nzSpan]="24"
-        [nzValidateStatus]="loginForm.get('email')!"
-      >
-        <input
-          nz-input
-          formControlName="email"
-          id="email"
-          nzSize="large"
-          type="email"
-          placeholder="you@example.com"
-          class="mb-4 custom-input"
-        />
-        <div
-          *ngIf="
-            loginForm.get('email')?.hasError('required') &&
-            loginForm.get('email')?.touched
-          "
-          class="ant-form-item-explain-error"
-        >
-          {{ "VALIDATE.EMAIL" | translate }}
-        </div>
-        <div
-          *ngIf="loginForm.get('email')?.hasError('email')"
-          class="ant-form-item-explain-error"
-        >
-          {{ "VALIDATE.EMAIL_INVALID" | translate }}
-        </div>
-      </nz-form-control>
-    </nz-form-item>
+    <div class="text-black text-center mb-6 sm:mb-8">
+      <h1 class="text-lg sm:text-[22px] font-extrabold">
+        {{ "LOGIN.SYSTEM" | translate }}
+      </h1>
+      <h2 class="text-xl sm:text-[26px] font-semibold">
+        🔐 {{ "LOGIN.TITLE" | translate }}
+      </h2>
+    </div>
 
-    <nz-form-item>
-      <nz-form-label [nzSpan]="24" nzFor="password">
-        {{ "LOGIN.PASSWORD" | translate }}
-      </nz-form-label>
-
-      <nz-form-control
-        [nzSpan]="24"
-        [nzValidateStatus]="loginForm.get('password')!"
-      >
-        <nz-input-group [nzSuffix]="suffixIcon" nzSize="large" class="custom-input">
+    <!-- form -->
+    <form
+      [formGroup]="loginForm"
+      (ngSubmit)="onSubmit()"
+      nz-form
+      [nzLayout]="'vertical'"
+    >
+      <nz-form-item>
+        <nz-form-label nzSpan="24" nzFor="email">{{
+          "LOGIN.EMAIL" | translate
+        }}</nz-form-label>
+        <nz-form-control
+          [nzSpan]="24"
+          [nzValidateStatus]="loginForm.get('email')!"
+        >
           <input
-            [type]="passwordVisible ? 'text' : 'password'"
             nz-input
-            formControlName="password"
-            id="password"
+            formControlName="email"
+            id="email"
             nzSize="large"
-            placeholder="•••••••••••"
+            type="email"
+            placeholder="you@example.com"
+            class="mb-4 custom-input"
+            autocomplete="current-password"
           />
-        </nz-input-group>
+          <div
+            *ngIf="
+              loginForm.get('email')?.hasError('required') &&
+              loginForm.get('email')?.touched
+            "
+            class="ant-form-item-explain-error"
+          >
+            {{ "VALIDATE.EMAIL" | translate }}
+          </div>
+          <div
+            *ngIf="loginForm.get('email')?.hasError('email')"
+            class="ant-form-item-explain-error"
+          >
+            {{ "VALIDATE.EMAIL_INVALID" | translate }}
+          </div>
+        </nz-form-control>
+      </nz-form-item>
 
-        <div
-          *ngIf="
-            loginForm.get('password')?.hasError('required') &&
-            loginForm.get('password')?.touched
-          "
-          class="ant-form-item-explain-error"
+      <nz-form-item>
+        <nz-form-label [nzSpan]="24" nzFor="password">
+          {{ "LOGIN.PASSWORD" | translate }}
+        </nz-form-label>
+
+        <nz-form-control
+          [nzSpan]="24"
+          [nzValidateStatus]="loginForm.get('password')!"
         >
-          {{ "VALIDATE.PASSWORD" | translate }}
-        </div>
-      </nz-form-control>
+          <nz-input-group
+            [nzSuffix]="suffixIcon"
+            nzSize="large"
+            class="custom-input"
+          >
+            <input
+              [type]="passwordVisible ? 'text' : 'password'"
+              nz-input
+              formControlName="password"
+              id="password"
+              nzSize="large"
+              placeholder="•••••••••••"
+              autocomplete="current-password"
+            />
+          </nz-input-group>
 
-      <!-- Eye icon template -->
-      <ng-template #suffixIcon>
-        <nz-icon
-          [nzType]="passwordVisible ? 'eye-invisible' : 'eye'"
-          nzTheme="outline"
-          class="cursor-pointer text-[#888]"
-          (click)="passwordVisible = !passwordVisible"
-        ></nz-icon>
-      </ng-template>
-    </nz-form-item>
+          <div
+            *ngIf="
+              loginForm.get('password')?.hasError('required') &&
+              loginForm.get('password')?.touched
+            "
+            class="ant-form-item-explain-error"
+          >
+            {{ "VALIDATE.PASSWORD" | translate }}
+          </div>
+        </nz-form-control>
 
-    <!-- login button -->
+        <!-- Eye icon template -->
+        <ng-template #suffixIcon>
+          <nz-icon
+            [nzType]="passwordVisible ? 'eye-invisible' : 'eye'"
+            nzTheme="outline"
+            class="cursor-pointer text-[#888]"
+            (click)="passwordVisible = !passwordVisible"
+          ></nz-icon>
+        </ng-template>
+      </nz-form-item>
+
+      <!-- login button -->
+      <button
+        nz-button
+        nzType="default"
+        nzSize="large"
+        class="w-full custom-blue-btn"
+        [disabled]="isLodding"
+      >
+        {{ "LOGIN.TITLE" | translate }}
+      </button>
+    </form>
+
+    <!-- divider -->
+    <div class="my-6">
+      <nz-divider
+        nzPlain
+        nzText="{{ 'LOGIN.OR' | translate }}"
+        class="custom-divider"
+      ></nz-divider>
+    </div>
+
+    <!-- login google button -->
     <button
       nz-button
       nzType="default"
       nzSize="large"
-      class="w-full custom-blue-btn"
+      class="w-full custom-login-google"
+      [disabled]="isLodding"
+      (click)="onLoginWithGoogle()"
     >
-      {{ "LOGIN.TITLE" | translate }}
+      <nz-icon nzType="google" />
+      {{ "LOGIN.GOOGLE" | translate }}
     </button>
-  </form>
 
-  <!-- divider -->
-  <div class="my-6">
-    <nz-divider
-      nzPlain
-      nzText="{{ 'LOGIN.OR' | translate }}"
-      class="custom-divider"
-    ></nz-divider>
-  </div>
-
-  <!-- login google button -->
-  <button
-    nz-button
-    nzType="default"
-    nzSize="large"
-    class="w-full custom-login-google"
-  >
-    <nz-icon nzType="google" />
-    {{ "LOGIN.GOOGLE" | translate }}
-  </button>
-
-  <!-- Link Register -->
-  <div class="flex items-center justify-center mt-4 gap-2 text-sm sm:text-base">
-    <div class="font-semibold text-[14px]">
-      {{ "LOGIN.QUESTION" | translate }}
+    <!-- Link Register -->
+    <div
+      class="flex items-center justify-center mt-4 gap-2 text-sm sm:text-base"
+    >
+      <div class="font-semibold text-[14px]">
+        {{ "LOGIN.QUESTION" | translate }}
+      </div>
+      <a routerLink="/register" nz-button nzType="link">
+        {{ "LOGIN.REGISTER" | translate }}
+      </a>
     </div>
-    <a routerLink="/register" nz-button nzType="link">
-      {{ "LOGIN.REGISTER" | translate }}
-    </a>
-  </div>
-</main>
+  </main>
+</nz-spin>
