@@ -40,4 +40,11 @@ export class AuthService {
     const url = `${this.ApiEndpoint}/auth/google?redirect_uri=${redirectUri}`;
     window.location.href = url;
   }
+
+  checkCurrentUser(): Observable<IResponse<any>> {
+    return this.http.get<any>(`${this.ApiEndpoint}/auth/me`,{
+      withCredentials: true
+    })
+    .pipe(timeout(this.ApiTimeout), retry(this.ApiRetry))
+  }
 }
