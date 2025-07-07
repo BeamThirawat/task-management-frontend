@@ -34,5 +34,20 @@
     "EMAIL_INVALID": "Please enter a valid email address.",
     "PASSWORD_MIN_LENGTH": "Password must be at least 6 characters long.",
     "PASSWORD_MISMATCH": "Passwords do not match."
+  },
+  "LOGOUT" : {
+    "TITLE": "Are you sure?",
+    "TEXT": "Do you want to sign out?",
+    "CONFIRM": "Yes, Sing out.",
+    "CANCLE": "Cancle",
+    "TITLE_SUCESS": "Signed out successfully.",
+    "TEXT_SUCESS": "You have been logged out.",
+    "TITLE_ERROR": "Oops! Something went wrong.",
+    "TEXT_ERROR": "Logout failed. Please try again."
+  },
+  "NAVBAR": {
+    "HELLO": "Hello",
+    "LOGO": "Task Management",
+    "LOGOUT": "Sign out"
   }
 }
