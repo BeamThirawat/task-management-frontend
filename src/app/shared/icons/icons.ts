@@ -1,11 +1,17 @@
 import {
   GoogleOutline,
   EyeOutline,
-  EyeInvisibleOutline
+  EyeInvisibleOutline,
+  LogoutOutline,
+  MenuOutline,
+  CloseOutline
 } from '@ant-design/icons-angular/icons';
 
 export const ICONS = [
   GoogleOutline,
   EyeOutline,
-  EyeInvisibleOutline
+  EyeInvisibleOutline,
+  LogoutOutline,
+  MenuOutline,
+  CloseOutline
 ];
