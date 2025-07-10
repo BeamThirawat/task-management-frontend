@@ -4,17 +4,16 @@
 
 @theme {
     --font-sarabun: "Sarabun", "sans-serif";
-    --color-background: var(--background)
 }
 
 body {
     font-family: var(--font-sarabun);
 }
 
-:root {
-    --background: #e8e8e8;
+.bg-gradient {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
 }
 
-.dark {
-    --background: #212121;
+.dark .bg-gradient {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
 }
