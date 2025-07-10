@@ -16,7 +16,7 @@ import { NgIf } from '@angular/common';
 import { NzSpinModule } from 'ng-zorro-antd/spin';
 import Swal from 'sweetalert2';
 import { AuthService } from '../../core/services/auth.service';
-import { Login } from '../../shared/models/user.model';
+import { ILogin, IUser, Login } from '../../shared/models/user.model';
 
 @Component({
   selector: 'app-login',
@@ -75,6 +75,7 @@ export class LoginComponent {
       next: (res) => {
         if (res.message!.toLowerCase() === 'success') {
           this.isLodding = false;
+          this.authService.setCurrentUser(res.data as ILogin);
           this.processSuccess();
         } else {
           this.isLodding = false;
