@@ -49,5 +49,11 @@
     "HELLO": "Hello",
     "LOGO": "Task Management",
     "LOGOUT": "Sign out"
+  },
+  "DASHBOARD": {
+    "TITLE": "My Project",
+    "DESCRIPTION": "Manage and follow all task.",
+    "ADD": "New Project",
+    "ADD_DES": "Create New Project Get Start."
   }
 }

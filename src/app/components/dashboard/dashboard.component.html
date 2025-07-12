@@ -1,1 +1,26 @@
-<p>dashboard works!</p>
+<div class="min-h-screen mt-8 mx-12 text-center text-white">
+  <h1 class="text-[40px] mb-2.5" style="color: white">📁 {{"DASHBOARD.TITLE" | translate}}</h1>
+  <p class="text-[20px]">📌 {{"DASHBOARD.DESCRIPTION" | translate}}</p>
+
+  <div class="flex items-center">
+    <div class="grid grid-cols-3 gap-8 mt-8 mx-auto text-center">
+      <!-- add-project-card -->
+      <div
+        class="max-w-[400px] p-8 bg-white/10 border-2 border-dashed border-white/30 text-white rounded-2xl flex flex-col items-center justify-center gap-4 max-h-[300px] transition-all duration-300 ease-in-out relative overflow-hidden cursor-pointer before:content-[''] before:absolute before:top-0 before:left-0 before:right-0 before:h-1 before:bg-gradient-to-r before:from-indigo-400 before:to-[#764ba2] hover:bg-white/20 hover:border-white/50 hover:-translate-y-2"
+      >
+        &nbsp;
+        <nz-icon nzType="plus" class="text-4xl mb-2.5" />
+        <h3 class="text-[20px] font-bold" style="color: white">
+          {{"DASHBOARD.ADD" | translate}}
+        </h3>
+        <p class="text-[16px] leading-1.5">{{"DASHBOARD.ADD_DES" | translate}}</p>
+      </div>
+      <div
+        class="bg-white/10 border-2 border-dashed border-white/30 text-white rounded-2xl flex flex-col items-center justify-center gap-4 min-h-[200px] transition-all duration-300 ease-in-out cursor-pointer hover:bg-white/20 hover:border-white/50 hover:-translate-y-2"
+      >
+        Add Project
+      </div>
+      
+    </div>
+  </div>
+</div>
