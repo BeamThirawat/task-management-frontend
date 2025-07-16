@@ -1,0 +1,57 @@
+::ng-deep .ant-modal-header {
+  border-top-left-radius: 1rem !important;
+  border-top-right-radius: 1rem !important;
+  font-size: 20px;
+}
+
+::ng-deep .ant-modal-content {
+  border-radius: 1rem !important;
+}
+
+::ng-deep .ant-modal-title {
+  font-size: 24px !important;
+  font-weight: 600 !important;
+}
+
+.custom-input {
+    border-radius: 8px !important;
+    border-width: 2px !important;
+}
+
+.custom-input:hover {
+  border-width: 2px !important;
+  border-color: #d9d9d9 !important;
+}
+
+.custom-input:focus {
+    outline: none;
+    border-width: 2px;
+    border-color: #667eea !important;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.custom-button {
+    border-radius: 8px !important;
+    border-width: 2px !important;
+    border-color: #667eea !important;
+    color: #667eea !important;
+}
+
+.custom-button-save {
+    border-radius: 8px !important;
+    border-width: 2px !important;
+}
+
+.custom-button-save:not([disabled]) {
+  background-color: #667eea !important;
+  color: white !important;
+  border-color: #667eea !important;
+  cursor: pointer;
+}
+
+.custom-button:hover {
+    color: #fff !important;
+    background: #667eea !important;
+}
+
+

@@ -11,6 +11,7 @@ import { ICONS } from './app/shared/icons/icons';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { routes } from './app/app.routes'
 import { provideRouter } from '@angular/router';
+import { provideAnimations } from '@angular/platform-browser/animations';
 
 export function httpTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './i18n/', '.json');
@@ -21,6 +22,7 @@ bootstrapApplication(AppComponent, {
     provideHttpClient(),
     BrowserAnimationsModule,
     provideRouter(routes),
+    provideAnimations(),
     importProvidersFrom(
       TranslateModule.forRoot({
         loader: {

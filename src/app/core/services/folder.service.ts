@@ -15,7 +15,7 @@ export class FolderService {
 
   constructor(private http: HttpClient) {}
 
-  getFolders(): Observable<IResponse<IFolder>> {
+  getFolders(): Observable<IResponse<IFolder[]>> {
     return this.http
       .get<any>(`${this.ApiEndpoint}/folder-management/getFolders`, {
         withCredentials: true,

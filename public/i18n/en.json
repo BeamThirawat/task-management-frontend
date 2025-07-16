@@ -1,7 +1,7 @@
 {
   "SUCCESS": "Success",
   "ERROR": "Error",
-  "LOGIN" : {
+  "LOGIN": {
     "SYSTEM": "Task Management System",
     "TITLE": "Sign In",
     "EMAIL": "Email",
@@ -12,7 +12,7 @@
     "REGISTER": "Register",
     "LOGIN_FAIL": "Login Fail, Please try agin"
   },
-  "REGISTER" : {
+  "REGISTER": {
     "TITLE": "Sign Up",
     "USERNAME": "Username",
     "EMAIL": "Email",
@@ -26,7 +26,7 @@
     "CREATE_SUCCESS": "Sign Up Success",
     "CREATE_FAIL": "Sign Up Fail! Please try agin."
   },
-  "VALIDATE" : {
+  "VALIDATE": {
     "EMAIL": "Please enter your email",
     "USERNAME": "Please enter your username",
     "PASSWORD": "Please enter your password",
@@ -35,7 +35,7 @@
     "PASSWORD_MIN_LENGTH": "Password must be at least 6 characters long.",
     "PASSWORD_MISMATCH": "Passwords do not match."
   },
-  "LOGOUT" : {
+  "LOGOUT": {
     "TITLE": "Are you sure?",
     "TEXT": "Do you want to sign out?",
     "CONFIRM": "Yes, Sing out.",
@@ -54,6 +54,29 @@
     "TITLE": "My Project",
     "DESCRIPTION": "Manage and follow all task.",
     "ADD": "New Project",
-    "ADD_DES": "Create New Project Get Start."
+    "ADD_DES": "Create New Project Get Start.",
+    "TODO": "To Do",
+    "IN_PROGRESS": "In Progress",
+    "DONE": "Done",
+    "DELETE_CONFIRM_TITLE": "Are you sure you want to delete this item?",
+    "DELETE_CONFIRM_TEXT": "This action cannot be undone.",
+    "DELETE_CONFIRM_BUTTON": "Delete",
+    "DELETE_CANCEL_BUTTON": "Cancel",
+    "DELETE_SUCCESS_TITLE": "Item deleted successfully",
+    "DELETE_SUCCESS_TEXT": "The item has been deleted.",
+    "DELETE_FAIL_TITLE": "Failed to delete item",
+    "DELETE_FAIL_TEXT": "Could not delete the item. Please try again."
+  },
+  "MODAL": {
+    "TITLE": "New Project",
+    "PROJECT": "Project Name",
+    "EDIT_TITLE": "Edit Project",
+    "DESCRIPTION": "Description",
+    "PROJECTNAME_PLACEHOLDER": "Enter your project name.",
+    "DESCRIPTION_PLACEHOLDER": "Enter your project Description.",
+    "SAVE_SUCCESS": "Project saved successfully.",
+    "SAVE_ERROR": "Failed to save the project. Please try again.",
+    "CANCLE": "Cancle",
+    "SAVE": "Save"
   }
 }
