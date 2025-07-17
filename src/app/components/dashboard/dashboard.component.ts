@@ -15,6 +15,8 @@ import { NzFormModule } from 'ng-zorro-antd/form';
 import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import Swal from 'sweetalert2';
+import { TaskService } from '../../core/services/task.service';
+import { ITask, TaskStatus } from '../../shared/models/task.model';
 
 @Component({
   selector: 'app-dashboard',
@@ -40,11 +42,15 @@ export class DashboardComponent implements OnInit {
   folderId: number | null = null;
   isloading: boolean = false;
   isEditMode: boolean = false;
+  tasksCounts: {
+    [folderId: string]: { TO_DO: number; IN_PROGRESS: number; DONE: number } | undefined;
+  } = {};
 
   constructor(
     private folderService: FolderService,
     private translate: TranslateService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private taskService: TaskService
   ) {}
 
   ngOnInit() {
@@ -53,6 +59,7 @@ export class DashboardComponent implements OnInit {
       description: [''],
     });
     this.getFolders();
+    this.getCountTasks();
   }
 
   getFolders() {
@@ -66,6 +73,14 @@ export class DashboardComponent implements OnInit {
         this.folders = [];
         console.error('Error loading folders:', err);
       },
+    });
+  }
+
+  getCountTasks() {
+    this.taskService.loadTasks();
+
+    this.taskService.tasks$.subscribe((tasks) => {
+      this.tasksCounts = this.countTasksByFolderAndStatus(tasks);
     });
   }
 
@@ -210,5 +225,25 @@ export class DashboardComponent implements OnInit {
         });
       }
     });
+  }
+
+  private countTasksByFolderAndStatus(tasks: ITask[]) {
+    const counts: {
+      [folderId: string]: { TO_DO: number; IN_PROGRESS: number; DONE: number };
+    } = {};
+
+    for (const task of tasks) {
+      const folderId = task.folder_id;
+
+      if (!counts[folderId]) {
+        counts[folderId] = { TO_DO: 0, IN_PROGRESS: 0, DONE: 0 };
+      }
+
+      if (Object.values(TaskStatus).includes(task.status as TaskStatus)) {
+        counts[folderId][task.status as keyof typeof TaskStatus]++;
+      }
+    }
+
+    return counts;
   }
 }
