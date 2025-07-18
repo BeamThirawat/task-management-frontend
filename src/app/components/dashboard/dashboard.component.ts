@@ -3,7 +3,7 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { FolderService } from '../../core/services/folder.service';
 import { IFolder } from '../../shared/models/folder.model';
-import { CommonModule, NgFor } from '@angular/common';
+import { CommonModule, NgFor, NgIf } from '@angular/common';
 import { NzModalModule } from 'ng-zorro-antd/modal';
 import {
   FormBuilder,
@@ -30,6 +30,7 @@ import { ITask, TaskStatus } from '../../shared/models/task.model';
     NzInputModule,
     CommonModule,
     NzButtonModule,
+    NgIf
   ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css',

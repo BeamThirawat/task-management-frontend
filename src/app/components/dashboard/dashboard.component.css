@@ -54,4 +54,80 @@
     background: #667eea !important;
 }
 
+.custom-card {
+  max-width: 400px;
+  padding: 2rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 2px dashed rgba(255, 255, 255, 0.3);
+  color: white;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  max-height: 300px;
+  transition: all 0.3s ease-in-out;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.custom-card:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-0.5rem);
+}
+
+.custom-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(to right, #667eea, #764ba2);
+}
+
+::ng-deep .dark .custom-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #8b9dc3, #a0aec0);
+}
+
+.custom-bg-projectlist {
+  background-color: white;
+}
+
+::ng-deep .dark .custom-bg-projectlist {
+  background-color:#2d3748;
+}
+
+.custom-text-title-color {
+  color: black;
+}
+
+::ng-deep .dark .custom-text-title-color {
+  color: white;
+}
+
+.custom-color-icon {
+  color: black;
+}
+
+::ng-deep .dark .custom-color-icon {
+  color: white;
+}
+
+.custom-text-muted {
+  color: color-mix(in oklab, #000 60%, transparent);
+}
+::ng-deep .dark .custom-text-muted {
+  color: #a0aec0;
+}
+
 
