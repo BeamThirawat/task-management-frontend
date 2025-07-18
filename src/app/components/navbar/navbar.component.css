@@ -11,3 +11,28 @@
 .custom-logout:hover {
     background-color: #de2c18;
 }
+
+.custom-bg-navbar {
+    background-color: white;
+}
+
+::ng-deep .dark .custom-bg-navbar {
+    background: rgba(26, 26, 46, 1);
+    box-shadow: 0 2px 20px rgba(255, 255, 255, 0.1);
+}
+
+.custom-logo-text {
+    color: #667eea;
+}
+
+::ng-deep .dark .custom-logo-text {
+    color: #8b9dc3;
+}
+
+.custom-text-welcome {
+    color: black;
+}
+
+::ng-deep .dark .custom-text-welcome {
+    color: white;
+}
