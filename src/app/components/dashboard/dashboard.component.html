@@ -46,6 +46,7 @@
           *ngFor="let folder of folders"
           class="group w-[380px] custom-bg-projectlist border-white/30 rounded-2xl gap-4 min-h-[200px] transition-all duration-300 ease-in-out cursor-pointer hover:-translate-y-2
           "
+          (click)="openTask(folder.folder_id)"
         >
           <div class="p-8 text-start">
             <div

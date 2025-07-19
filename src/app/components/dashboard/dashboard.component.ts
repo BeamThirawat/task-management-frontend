@@ -17,6 +17,7 @@ import { NzButtonModule } from 'ng-zorro-antd/button';
 import Swal from 'sweetalert2';
 import { TaskService } from '../../core/services/task.service';
 import { ITask, TaskStatus } from '../../shared/models/task.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -51,7 +52,8 @@ export class DashboardComponent implements OnInit {
     private folderService: FolderService,
     private translate: TranslateService,
     private fb: FormBuilder,
-    private taskService: TaskService
+    private taskService: TaskService,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -246,5 +248,9 @@ export class DashboardComponent implements OnInit {
     }
 
     return counts;
+  }
+
+  openTask(folder_id: number) {
+    this.router.navigate(['/task', folder_id]);
   }
 }
