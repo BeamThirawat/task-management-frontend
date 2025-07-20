@@ -48,7 +48,6 @@ export class NavbarComponent implements OnInit {
           next: (res) => {
             if (res.message!.toLowerCase() === 'success') {
               this.router.navigate(['/login']);
-              Swal.fire(this.translate.instant("LOGOUT.TITLE_SUCESS"), '', 'success');
             }
           },
           error: (err) => {

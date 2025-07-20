@@ -1,0 +1,243 @@
+::ng-deep .ant-modal-header {
+  border-top-left-radius: 1rem !important;
+  border-top-right-radius: 1rem !important;
+  border-bottom: none;
+  padding-top: 2rem;
+  font-size: 20px;
+}
+
+::ng-deep .ant-modal-close-x {
+  margin-top: 1.6rem;
+  margin-right: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+}
+
+::ng-deep .ant-modal-close-x:hover {
+  background: #f0f0f0;
+  border-radius: 50%;
+}
+
+::ng-deep .dark .ant-modal-close-x {
+  margin-top: 1.6rem;
+  margin-right: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background-color: white;
+  border-radius: 50%;
+  color: #000;
+}
+
+::ng-deep .dark .ant-modal-close-x:hover {
+  color: #000;
+}
+
+::ng-deep .ant-modal-content {
+  border-radius: 1rem !important;
+}
+
+::ng-deep .dark .ant-modal-content {
+  background: #2d3748;
+  border-radius: 1rem !important;
+}
+
+::ng-deep .ant-modal-title {
+  font-size: 24px !important;
+  font-weight: 600 !important;
+}
+
+::ng-deep .dark .ant-modal-title {
+  font-size: 24px !important;
+  font-weight: 600 !important;
+  color: #fff;
+}
+
+::ng-deep .dark .ant-modal-header {
+  background: #2d3748;
+  border-top-left-radius: 1rem !important;
+  border-top-right-radius: 1rem !important;
+  color: white;
+}
+
+.custom-input {
+  border-radius: 8px !important;
+  border-width: 2px !important;
+}
+
+.custom-input:hover {
+  border-width: 2px !important;
+  border-color: #d9d9d9 !important;
+}
+
+.custom-input:focus {
+  outline: none;
+  border-width: 2px;
+  border-color: #667eea !important;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+::ng-deep .dark .custom-input {
+  border-radius: 8px !important;
+  border-width: 2px !important;
+  background: #1a202c;
+  color: #e9ecef;
+  border-color: #4a5568;
+}
+
+::ng-deep .dark .custom-input:hover {
+  border-radius: 8px !important;
+  border-width: 2px !important;
+  background: #1a202c !important;
+  border-color: #4a5568 !important;
+}
+
+::ng-deep .dark .custom-input:focus {
+  outline: none;
+  border-width: 2px;
+  border-color: #8b9dc3 !important;
+  box-shadow: 0 0 0 3px rgba(139, 157, 195, 0.1);
+}
+
+::ng-deep
+  .dark
+  .ant-input-status-error:not(.ant-input-disabled):not(
+    .ant-input-borderless
+  ).ant-input {
+  background: #1a202c;
+  border-color: #ff4d4f;
+}
+
+.custom-button {
+  border-radius: 8px !important;
+  border-width: 2px !important;
+  border-color: #667eea !important;
+  color: #667eea !important;
+}
+
+.custom-button:hover {
+  color: #fff !important;
+  background: #667eea !important;
+}
+
+::ng-deep .dark .custom-button {
+  border-radius: 8px !important;
+  border-width: 2px !important;
+  background: #2d3748 !important;
+  color: #8b9dc3 !important;
+  border-color: #8b9dc3 !important;
+}
+
+::ng-deep .dark .custom-button:hover {
+  background: #8b9dc3 !important;
+  color: #1a1a2e !important;
+}
+
+.custom-button-save {
+  border-radius: 8px !important;
+  border-width: 2px !important;
+}
+
+.custom-button-save:not([disabled]) {
+  background-color: #667eea !important;
+  color: white !important;
+  border-color: #667eea !important;
+  cursor: pointer;
+}
+
+::ng-deep .dark .ant-btn[disabled] {
+  background-color: #2f2f2f;
+  color: #888888;
+  border: 1px solid #444444;
+  cursor: not-allowed;
+  opacity: 1;
+}
+
+.custom-card {
+  max-width: 400px;
+  padding: 2rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 2px dashed rgba(255, 255, 255, 0.3);
+  color: white;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  max-height: 300px;
+  transition: all 0.3s ease-in-out;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.custom-card:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-0.5rem);
+}
+
+.custom-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(to right, #667eea, #764ba2);
+}
+
+::ng-deep .dark .custom-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #8b9dc3, #a0aec0);
+}
+
+.custom-bg-projectlist {
+  background-color: white;
+}
+
+::ng-deep .dark .custom-bg-projectlist {
+  background-color: #2d3748;
+}
+
+.custom-text-title-color {
+  color: black;
+}
+
+::ng-deep .dark .custom-text-title-color {
+  color: white;
+}
+
+.custom-color-icon {
+  color: black;
+}
+
+::ng-deep .dark .custom-color-icon {
+  color: white;
+}
+
+.custom-text-muted {
+  color: color-mix(in oklab, #000 60%, transparent);
+}
+::ng-deep .dark .custom-text-muted {
+  color: #a0aec0;
+}
+
+.custom-text-label > label {
+  color: black;
+}
+
+::ng-deep .dark .custom-text-label > label {
+  color: white !important;
+}

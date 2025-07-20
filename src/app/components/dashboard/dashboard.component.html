@@ -1,1 +1,198 @@
-<p>dashboard works!</p>
+<div class="min-h-screen mx-5 text-center text-white">
+  <h1 class="text-[28px] md:text-[40px]" style="color: white; margin-bottom: 2rem;">
+    📁 {{ "DASHBOARD.TITLE" | translate }}
+  </h1>
+  <p class="text-[18px] md:text-[22px]">📌 {{ "DASHBOARD.DESCRIPTION" | translate }}</p>
+
+  <div class="flex items-center">
+    <div
+      *ngIf="folders?.length == 0; else ProjectTemplate"
+      class="grid grid-cols-1 mt-14 mx-auto text-center"
+    >
+      <div
+        class="w-full sm:w-[400px] md:w-[500px] lg:w-[600px] xl:w-[700px] custom-card"
+        (click)="openAddModal()"
+      >
+        &nbsp;
+        <nz-icon nzType="plus" class="text-4xl mb-2.5" />
+        <h3 class="text-[20px] font-bold" style="color: white">
+          {{ "DASHBOARD.ADD" | translate }}
+        </h3>
+        <p class="text-[16px] leading-1.5">
+          {{ "DASHBOARD.ADD_DES" | translate }}
+        </p>
+      </div>
+    </div>
+    <ng-template #ProjectTemplate>
+      <div
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8 mx-auto text-center"
+      >
+        <!-- add-project-card -->
+        <div
+          class="w-full sm:w-[400px] md:w-[500px] lg:w-[600px] xl:w-[700px] custom-card"
+          (click)="openAddModal()"
+        >
+          &nbsp;
+          <nz-icon nzType="plus" class="text-4xl mb-2.5" />
+          <h3 class="text-[20px] font-bold" style="color: white">
+            {{ "DASHBOARD.ADD" | translate }}
+          </h3>
+          <p class="text-[16px] leading-1.5">
+            {{ "DASHBOARD.ADD_DES" | translate }}
+          </p>
+        </div>
+        <!-- project list -->
+        <div
+          *ngFor="let folder of folders"
+          class="group w-[380px] custom-bg-projectlist border-white/30 rounded-2xl gap-4 min-h-[200px] transition-all duration-300 ease-in-out cursor-pointer hover:-translate-y-2
+          "
+          (click)="openTask(folder.folder_id)"
+        >
+          <div class="p-8 text-start">
+            <div
+              class="mb-2 text-2xl flex items-center justify-between"
+            >
+              <!-- folder name -->
+              <h1
+                class="text-[20px] font-bold truncate custom-text-title-color"
+                title="{{ folder.folder_name }}"
+              >
+                {{ folder.folder_name }}
+              </h1>
+              <!-- icon -->
+              <div
+                class="flex-shrink-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 custom-color-icon"
+              >
+                <nz-icon
+                  nzType="edit"
+                  class="mr-4"
+                  (click)="openEditModal(folder); $event.stopPropagation()"
+                />
+                <nz-icon
+                  nzType="delete"
+                  (click)="
+                    onDeleteProject(folder.folder_id); $event.stopPropagation()
+                  "
+                />
+              </div>
+            </div>
+            <!-- description -->
+            <div
+              class="min-h-[60px] mb-10 text-[14px] font-medium overflow-hidden text-ellipsis custom-text-muted"
+            >
+              {{ folder.description }}
+            </div>
+            <!-- total number -->
+            <div class="mb-6 flex flex-1/3 justify-around custom-text-muted">
+              <!-- TO DO total -->
+              <div class="flex flex-col text-center">
+                <div class="text-2xl text-[#667eea] font-bold">
+                  {{ tasksCounts[folder.folder_id]?.TO_DO || 0 }}
+                </div>
+                <div class="mt-1.5">
+                  {{ "DASHBOARD.TODO" | translate }}
+                </div>
+              </div>
+              <!-- Process total -->
+              <div class="flex flex-col text-center">
+                <div class="text-2xl text-[#667eea] font-bold">
+                  {{ tasksCounts[folder.folder_id]?.IN_PROGRESS || 0 }}
+                </div>
+                <div class="mt-1.5">
+                  {{ "DASHBOARD.IN_PROGRESS" | translate }}
+                </div>
+              </div>
+              <!-- final -->
+              <div class="flex flex-col text-center">
+                <div class="text-2xl text-[#667eea] font-bold">
+                  {{ tasksCounts[folder.folder_id]?.DONE || 0 }}
+                </div>
+                <div class="mt-1.5">
+                  {{ "DASHBOARD.DONE" | translate }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </div>
+</div>
+<!-- Modal Project -->
+<nz-modal
+  [nzVisible]="isAddModalVisible"
+  nzTitle="{{
+    isEditMode ? ('MODAL.EDIT_TITLE' | translate) : ('MODAL.TITLE' | translate)
+  }}"
+  [nzFooter]="null"
+  (nzOnCancel)="handleCancel()"
+  nzCentered
+>
+  <form
+    *nzModalContent
+    nz-form
+    [formGroup]="projectForm"
+    (ngSubmit)="onSubmitProject()"
+    [nzLayout]="'vertical'"
+  >
+    <nz-form-item>
+      <nz-form-label
+        class="custom-text-label"
+        [nzSpan]="24"
+        nzFor="projectName"
+        >{{ "MODAL.PROJECT" | translate }}</nz-form-label
+      >
+      <nz-form-control [nzSpan]="24">
+        <input
+          nz-input
+          nzSize="large"
+          id="projectName"
+          class="custom-input"
+          formControlName="projectName"
+          placeholder="{{ 'MODAL.PROJECTNAME_PLACEHOLDER' | translate }}"
+        />
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label
+        class="custom-text-label"
+        [nzSpan]="24"
+        nzFor="description"
+        >{{ "MODAL.DESCRIPTION" | translate }}</nz-form-label
+      >
+      <nz-form-control [nzSpan]="24">
+        <textarea
+          nz-input
+          id="description"
+          class="custom-input"
+          formControlName="description"
+          rows="4"
+          placeholder="{{ 'MODAL.DESCRIPTION_PLACEHOLDER' | translate }}"
+        ></textarea>
+      </nz-form-control>
+    </nz-form-item>
+
+    <div class="flex justify-end gap-3 mt-6">
+      <button
+        nz-button
+        nzType="default"
+        nzSize="large"
+        class="custom-button"
+        (click)="handleCancel()"
+      >
+        {{ "MODAL.CANCLE" | translate }}
+      </button>
+      <button
+        nz-button
+        nzType="default"
+        nzSize="large"
+        class="custom-button-save"
+        [disabled]="projectForm.invalid"
+        [nzLoading]="isloading"
+      >
+        {{ "MODAL.SAVE" | translate }}
+      </button>
+    </div>
+  </form>
+</nz-modal>
