@@ -8,6 +8,8 @@ import {
   PlusOutline,
   EditOutline,
   DeleteOutline,
+  LeftOutline,
+  CalendarOutline
 } from '@ant-design/icons-angular/icons';
 
 export const ICONS = [
@@ -19,5 +21,7 @@ export const ICONS = [
   CloseOutline,
   PlusOutline,
   EditOutline,
-  DeleteOutline
+  DeleteOutline,
+  LeftOutline,
+  CalendarOutline
 ];

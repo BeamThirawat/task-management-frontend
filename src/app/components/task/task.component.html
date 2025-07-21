@@ -1,1 +1,112 @@
-<p>task works! folder id : {{folderId}}</p>
+<div class="min-h-screen">
+  <div class="max-w-[1350px] h-[80vh] mx-auto rounded-2xl custom-bg">
+    <div class="w-full h-full p-8">
+      <!-- tab back and Add task -->
+      <div class="flex justify-between items-center">
+        <!-- back to dashboard -->
+        <button
+          nz-button
+          nzType="default"
+          nzSize="large"
+          class="custom-button-back"
+          (click)="goBack()"
+        >
+          <nz-icon nzType="left" />
+          {{ "TASK.BACK" | translate }}
+        </button>
+        <!-- project name -->
+        <h1 class="text-2xl text-center custom-color-title">
+          {{ folderName }}
+        </h1>
+        <!-- add button -->
+        <button
+          nz-button
+          nzType="default"
+          nzSize="large"
+          class="custom-button-add"
+        >
+          <nz-icon nzType="plus" />
+          {{ "TASK.ADD_TASK" | translate }}
+        </button>
+      </div>
+      <!-- line -->
+      <nz-divider class="custom-devider" />
+      <!-- column list background -->
+      <div class="grid grid-cols-3 gap-5">
+        <!-- TO DO -->
+        <div
+          class="min-w-[300px] min-h-[500px] rounded-xl p-4 custom-cloumn-bg"
+        >
+          <!-- tab show total -->
+          <div class="p-2 mb-6 flex justify-between custom-todo-total">
+            <span>{{ "TASK.TO_DO" | translate }}</span>
+            <span>{{
+              taskStatusCount["TO_DO"] ? taskStatusCount["TO_DO"] : 0
+            }}</span>
+          </div>
+          <!-- Task Card -->
+          <div *ngFor="let task of tasks">
+            <div
+              class="w-full p-4 max-h-[110px] rounded-md border-l-4 custom-card transition-transform duration-300 ease-in-out hover:-translate-y-1 hover:cursor-grab"
+            >
+              <h1 class="custom-title-card">{{ task.title }}</h1>
+              <p class="custom-description-card">{{ task.description }}</p>
+              <!-- Date and function edit and delete -->
+              <div class="flex justify-between items-center">
+                <div class="flex items-center gap-2 text-sm custom-date">
+                  📅
+                  <span>{{ task.startDate | date:'dd/MM/yyyy'}}</span>
+                </div>
+                <div class="flex items-center custom-icon">
+                  <nz-icon
+                    nzType="edit"
+                    class="text-lg cursor-pointer"
+                  />
+                  <nz-icon
+                    nzType="delete"
+                    class="text-lg cursor-pointer ml-4"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Progress -->
+        <div
+          class="min-w-[300px] min-h-[500px] rounded-xl p-4 custom-cloumn-bg"
+        >
+          <div class="p-2 flex justify-between custom-progress-total">
+            <span>{{ "TASK.PROGRESS" | translate }}</span>
+            <span>{{
+              taskStatusCount["IN_PROGRESS"]
+                ? taskStatusCount["IN_PROGRESS"]
+                : 0
+            }}</span>
+          </div>
+        </div>
+        <!-- Done -->
+        <div
+          class="min-w-[300px] min-h-[500px] rounded-xl p-4 custom-cloumn-bg"
+        >
+          <div class="p-2 flex justify-between custom-done-total">
+            <span>{{ "TASK.DONE" | translate }}</span>
+            <span>{{
+              taskStatusCount["DONE"] ? taskStatusCount["DONE"] : 0
+            }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- modal Add and Task -->
+<nz-modal
+[nzVisible]="isModalVisible"
+nzTitle="test"
+[nzFooter]="null"
+(nzOnCancel)="handleCancel()"
+nzCentered
+>
+
+
+</nz-modal>

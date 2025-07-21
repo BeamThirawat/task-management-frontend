@@ -78,5 +78,12 @@
     "SAVE_ERROR": "Failed to save the project. Please try again.",
     "CANCLE": "Cancle",
     "SAVE": "Save"
+  },
+  "TASK": {
+    "BACK": "Back",
+    "ADD_TASK": "Add Task",
+    "TO_DO": "To Do",
+    "PROGRESS": "Progress",
+    "DONE": "Done"
   }
 }

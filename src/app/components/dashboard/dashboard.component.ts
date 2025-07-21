@@ -18,6 +18,7 @@ import Swal from 'sweetalert2';
 import { TaskService } from '../../core/services/task.service';
 import { ITask, TaskStatus } from '../../shared/models/task.model';
 import { Router } from '@angular/router';
+import { NzSpinModule } from 'ng-zorro-antd/spin';
 
 @Component({
   selector: 'app-dashboard',
@@ -31,7 +32,8 @@ import { Router } from '@angular/router';
     NzInputModule,
     CommonModule,
     NzButtonModule,
-    NgIf
+    NgIf,
+    NzSpinModule,
   ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css',
@@ -45,7 +47,9 @@ export class DashboardComponent implements OnInit {
   isloading: boolean = false;
   isEditMode: boolean = false;
   tasksCounts: {
-    [folderId: string]: { TO_DO: number; IN_PROGRESS: number; DONE: number } | undefined;
+    [folderId: string]:
+      | { TO_DO: number; IN_PROGRESS: number; DONE: number }
+      | undefined;
   } = {};
 
   constructor(
@@ -250,7 +254,11 @@ export class DashboardComponent implements OnInit {
     return counts;
   }
 
-  openTask(folder_id: number) {
-    this.router.navigate(['/task', folder_id]);
+  openTask(folder_id: number, project_name: string) {
+    this.isloading = true;
+
+    this.router.navigate(['/task', project_name, folder_id]).then(() => {
+      this.isloading = false;
+    });
   }
 }

@@ -1,8 +1,13 @@
 <div class="min-h-screen mx-5 text-center text-white">
-  <h1 class="text-[28px] md:text-[40px]" style="color: white; margin-bottom: 2rem;">
+  <h1
+    class="text-[28px] md:text-[40px]"
+    style="color: white; margin-bottom: 2rem"
+  >
     📁 {{ "DASHBOARD.TITLE" | translate }}
   </h1>
-  <p class="text-[18px] md:text-[22px]">📌 {{ "DASHBOARD.DESCRIPTION" | translate }}</p>
+  <p class="text-[18px] md:text-[22px]">
+    📌 {{ "DASHBOARD.DESCRIPTION" | translate }}
+  </p>
 
   <div class="flex items-center">
     <div
@@ -44,14 +49,11 @@
         <!-- project list -->
         <div
           *ngFor="let folder of folders"
-          class="group w-[380px] custom-bg-projectlist border-white/30 rounded-2xl gap-4 min-h-[200px] transition-all duration-300 ease-in-out cursor-pointer hover:-translate-y-2
-          "
-          (click)="openTask(folder.folder_id)"
+          class="group w-[380px] custom-bg-projectlist border-white/30 rounded-2xl gap-4 min-h-[200px] transition-all duration-300 ease-in-out cursor-pointer hover:-translate-y-2"
+          (click)="openTask(folder.folder_id, folder.folder_name)"
         >
           <div class="p-8 text-start">
-            <div
-              class="mb-2 text-2xl flex items-center justify-between"
-            >
+            <div class="mb-2 text-2xl flex items-center justify-between">
               <!-- folder name -->
               <h1
                 class="text-[20px] font-bold truncate custom-text-title-color"
