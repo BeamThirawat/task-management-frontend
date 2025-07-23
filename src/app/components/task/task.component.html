@@ -1,5 +1,5 @@
 <div class="min-h-screen">
-  <div class="max-w-[1350px] h-[80vh] mx-auto rounded-2xl custom-bg">
+  <div class="max-w-[1350px] min-h-[80vh] mx-auto rounded-2xl custom-bg">
     <div class="w-full h-full p-8">
       <!-- tab back and Add task -->
       <div class="flex justify-between items-center">
@@ -24,6 +24,7 @@
           nzType="default"
           nzSize="large"
           class="custom-button-add"
+          (click)="openAddModal()"
         >
           <nz-icon nzType="plus" />
           {{ "TASK.ADD_TASK" | translate }}
@@ -45,26 +46,28 @@
             }}</span>
           </div>
           <!-- Task Card -->
-          <div *ngFor="let task of tasks">
+          <div *ngFor="let task of todoTasks">
             <div
-              class="w-full p-4 max-h-[110px] rounded-md border-l-4 custom-card transition-transform duration-300 ease-in-out hover:-translate-y-1 hover:cursor-grab"
+              class="w-full p-4 min-h-[110px] mb-3 rounded-md border-l-4 custom-card-to-do transition-transform duration-300 ease-in-out hover:-translate-y-1 hover:cursor-grab"
             >
               <h1 class="custom-title-card">{{ task.title }}</h1>
-              <p class="custom-description-card">{{ task.description }}</p>
+              <p class="custom-description-card min-h-[25px]">{{ task.description ? task.description : '-' }}</p>
               <!-- Date and function edit and delete -->
               <div class="flex justify-between items-center">
                 <div class="flex items-center gap-2 text-sm custom-date">
                   📅
-                  <span>{{ task.startDate | date:'dd/MM/yyyy'}}</span>
+                  <span>{{ task.startDate | date : "dd/MM/yyyy" }}</span>
                 </div>
                 <div class="flex items-center custom-icon">
                   <nz-icon
                     nzType="edit"
                     class="text-lg cursor-pointer"
+                    (click)="openEditModal(task)"
                   />
                   <nz-icon
                     nzType="delete"
                     class="text-lg cursor-pointer ml-4"
+                    (click)="onDeleteTask(task.id)"
                   />
                 </div>
               </div>
@@ -75,7 +78,7 @@
         <div
           class="min-w-[300px] min-h-[500px] rounded-xl p-4 custom-cloumn-bg"
         >
-          <div class="p-2 flex justify-between custom-progress-total">
+          <div class="p-2 mb-6 flex justify-between custom-progress-total">
             <span>{{ "TASK.PROGRESS" | translate }}</span>
             <span>{{
               taskStatusCount["IN_PROGRESS"]
@@ -83,16 +86,72 @@
                 : 0
             }}</span>
           </div>
+          <!-- Task Card -->
+          <div *ngFor="let task of inProgressTasks">
+            <div
+              class="w-full p-4 min-h-[110px] mb-3 rounded-md border-l-4 custom-card-progress transition-transform duration-300 ease-in-out hover:-translate-y-1 hover:cursor-grab"
+            >
+              <h1 class="custom-title-card">{{ task.title }}</h1>
+              <p class="custom-description-card min-h-[25px]">{{ task.description ? task.description : '-' }}</p>
+              <!-- Date and function edit and delete -->
+              <div class="flex justify-between items-center">
+                <div class="flex items-center gap-2 text-sm custom-date">
+                  📅
+                  <span>{{ task.startDate | date : "dd/MM/yyyy" }}</span>
+                </div>
+                <div class="flex items-center custom-icon">
+                  <nz-icon
+                    nzType="edit"
+                    class="text-lg cursor-pointer"
+                    (click)="openEditModal(task)"
+                  />
+                  <nz-icon
+                    nzType="delete"
+                    class="text-lg cursor-pointer ml-4"
+                    (click)="onDeleteTask(task.id)"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
         <!-- Done -->
         <div
           class="min-w-[300px] min-h-[500px] rounded-xl p-4 custom-cloumn-bg"
         >
-          <div class="p-2 flex justify-between custom-done-total">
+          <div class="p-2 mb-6 flex justify-between custom-done-total">
             <span>{{ "TASK.DONE" | translate }}</span>
             <span>{{
               taskStatusCount["DONE"] ? taskStatusCount["DONE"] : 0
             }}</span>
+          </div>
+          <!-- Task Card -->
+          <div *ngFor="let task of doneTasks">
+            <div
+              class="w-full p-4 min-h-[110px] mb-3 rounded-md border-l-4 custom-card-done transition-transform duration-300 ease-in-out hover:-translate-y-1 hover:cursor-grab"
+            >
+              <h1 class="custom-title-card">{{ task.title }}</h1>
+              <p class="custom-description-card min-h-[25px]">{{ task.description ? task.description : '-' }}</p>
+              <!-- Date and function edit and delete -->
+              <div class="flex justify-between items-center">
+                <div class="flex items-center gap-2 text-sm custom-date">
+                  📅
+                  <span>{{ task.startDate | date : "dd/MM/yyyy" }}</span>
+                </div>
+                <div class="flex items-center custom-icon">
+                  <nz-icon
+                    nzType="edit"
+                    class="text-lg cursor-pointer"
+                    (click)="openEditModal(task)"
+                  />
+                  <nz-icon
+                    nzType="delete"
+                    class="text-lg cursor-pointer ml-4"
+                    (click)="onDeleteTask(task.id)"
+                  />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -101,12 +160,120 @@
 </div>
 <!-- modal Add and Task -->
 <nz-modal
-[nzVisible]="isModalVisible"
-nzTitle="test"
-[nzFooter]="null"
-(nzOnCancel)="handleCancel()"
-nzCentered
+  [nzVisible]="isModalVisible"
+  nzTitle="{{
+    isEditMode
+      ? ('MODAL.EDIT_TITLE_TASK' | translate)
+      : ('MODAL.TITLE_TASK' | translate)
+  }}"
+  [nzFooter]="null"
+  (nzOnCancel)="handleCancel()"
+  nzCentered
 >
+  <form
+    *nzModalContent
+    nz-form
+    [formGroup]="taskForm"
+    (ngSubmit)="onSubmitTask()"
+    [nzLayout]="'vertical'"
+  >
+    <!-- title -->
+    <nz-form-item>
+      <nz-form-label class="custom-text-label" [nzSpan]="24" nzFor="title"
+        >{{ "MODAL.TASK_NAME" | translate }} *</nz-form-label
+      >
+      <nz-form-control [nzSpan]="24">
+        <input
+          nz-input
+          nzSize="large"
+          id="title"
+          class="custom-input w-full placeholder:text-gray-400"
+          formControlName="title"
+          placeholder="{{ 'MODAL.TASK_NAME_PLACEHOLDER' | translate }}"
+        />
+      </nz-form-control>
+    </nz-form-item>
 
+    <!-- description -->
+    <nz-form-item>
+      <nz-form-label
+        class="custom-text-label"
+        [nzSpan]="24"
+        nzFor="description"
+        >{{ "MODAL.DESCRIPTION" | translate }}</nz-form-label
+      >
+      <nz-form-control [nzSpan]="24">
+        <textarea
+          nz-input
+          id="description"
+          class="custom-input w-full placeholder:text-gray-400"
+          formControlName="description"
+          rows="4"
+          placeholder="{{ 'MODAL.DESCRIPTION_TASK_PLACEHOLDER' | translate }}"
+        ></textarea>
+      </nz-form-control>
+    </nz-form-item>
 
+    <!-- Start Date -->
+    <nz-form-item>
+      <nz-form-label class="custom-text-label" [nzSpan]="24" nzFor="startDate">
+        {{ "MODAL.TASK_SARTDATE" | translate }} *
+      </nz-form-label>
+      <nz-form-control [nzSpan]="24">
+        <nz-date-picker
+          nzSize="large"
+          class="custom-date-picker w-full"
+          id="startDate"
+          formControlName="startDate"
+          [nzFormat]="'dd/MM/yyyy'"
+        ></nz-date-picker>
+      </nz-form-control>
+    </nz-form-item>
+
+    <!-- Status -->
+    <nz-form-item>
+      <nz-form-label [nzSpan]="24" nzFor="status" class="custom-text-label">
+        {{ "MODAL.STATUS" | translate }} *
+      </nz-form-label>
+
+      <nz-form-control [nzSpan]="24">
+        <nz-select
+          nzSize="large"
+          class="w-full"
+          formControlName="status"
+          nzDropdownClassName="custom-dropdown"
+          nzPlaceHolder="{{ 'MODAL.TASK_NAME_PLACEHOLDER' | translate }}"
+        >
+          <nz-option nzValue="TO_DO" nzLabel="{{ 'TASK.TO_DO' | translate }}" />
+          <nz-option
+            nzValue="IN_PROGRESS"
+            nzLabel="{{ 'TASK.PROGRESS' | translate }}"
+          />
+          <nz-option nzValue="DONE" nzLabel="{{ 'TASK.DONE' | translate }}" />
+        </nz-select>
+      </nz-form-control>
+    </nz-form-item>
+
+    <div class="flex justify-end gap-3 mt-6">
+      <button
+        nz-button
+        nzType="default"
+        nzSize="large"
+        class="custom-button"
+        (click)="handleCancel()"
+      >
+        {{ "MODAL.CANCLE" | translate }}
+      </button>
+      <button
+        nz-button
+        nzType="default"
+        nzSize="large"
+        class="custom-button-save"
+        [disabled]="taskForm.invalid"
+        [nzLoading]="isloading"
+      >
+        {{ "MODAL.SAVE" | translate }}
+      </button>
+    </div>
+  </form>
 </nz-modal>

@@ -3,6 +3,8 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { LanguageThemeService } from '../../core/services/language-theme.service';
 import { Subscription } from 'rxjs';
+import { NzI18nService } from 'ng-zorro-antd/i18n';
+import { NZ_I18N, th_TH, en_US } from 'ng-zorro-antd/i18n';
 
 @Component({
   selector: 'app-language-theme-toggle',
@@ -18,7 +20,8 @@ export class LanguageThemeToggleComponent implements OnInit, OnDestroy {
 
   constructor(
     private translate: TranslateService,
-    private langThemeService: LanguageThemeService
+    private langThemeService: LanguageThemeService,
+    private i18n: NzI18nService
   ) {}
 
   ngOnInit(): void {
@@ -27,6 +30,7 @@ export class LanguageThemeToggleComponent implements OnInit, OnDestroy {
       this.langThemeService.lang$.subscribe((lang) => {
         this.isLangThai = lang === 'th';
         this.translate.use(lang);
+        this.i18n.setLocale(lang === 'th' ? th_TH : en_US);
       })
     );
     // Subscribe language and set isDarkMode
@@ -43,6 +47,7 @@ export class LanguageThemeToggleComponent implements OnInit, OnDestroy {
     const input = $event.target as HTMLInputElement;
     const lang = input.checked ? 'th' : 'en';
     this.langThemeService.setLang(lang);
+    this.i18n.setLocale(lang === 'th' ? th_TH : en_US);
   }
 
   toggleTheme(event: Event): void {

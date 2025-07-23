@@ -12,6 +12,12 @@ import { NzIconModule } from 'ng-zorro-antd/icon';
 import { routes } from './app/app.routes'
 import { provideRouter } from '@angular/router';
 import { provideAnimations } from '@angular/platform-browser/animations';
+import { registerLocaleData } from '@angular/common';
+import localeTh from '@angular/common/locales/th';
+import localeEn from '@angular/common/locales/en';
+
+registerLocaleData(localeTh, 'th');
+registerLocaleData(localeEn, 'en');
 
 export function httpTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './i18n/', '.json');
