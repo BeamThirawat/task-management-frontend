@@ -6,7 +6,7 @@ import { NzDividerModule } from 'ng-zorro-antd/divider';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { TaskService } from '../../core/services/task.service';
 import { ITask } from '../../shared/models/task.model';
-import { DatePipe, NgFor } from '@angular/common';
+import { DatePipe, NgFor, NgIf } from '@angular/common';
 import { NzModalModule } from 'ng-zorro-antd/modal';
 import { NzFormModule } from 'ng-zorro-antd/form';
 import {
@@ -18,6 +18,13 @@ import {
 import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
 import { NzSelectModule } from 'ng-zorro-antd/select';
 import Swal from 'sweetalert2';
+import {
+  DragDropModule,
+  CdkDragDrop,
+  moveItemInArray,
+} from '@angular/cdk/drag-drop';
+import { NzAlertModule } from 'ng-zorro-antd/alert';
+import { NzNotificationService } from 'ng-zorro-antd/notification';
 
 @Component({
   selector: 'app-task',
@@ -33,6 +40,8 @@ import Swal from 'sweetalert2';
     ReactiveFormsModule,
     NzDatePickerModule,
     NzSelectModule,
+    DragDropModule,
+    NzAlertModule,
   ],
   templateUrl: './task.component.html',
   styleUrl: './task.component.css',
@@ -58,7 +67,8 @@ export class TaskComponent implements OnInit {
     private taskService: TaskService,
     private fb: FormBuilder,
     private datePipe: DatePipe,
-    private translate: TranslateService
+    private translate: TranslateService,
+    private notification: NzNotificationService
   ) {}
 
   ngOnInit(): void {
@@ -260,5 +270,65 @@ export class TaskComponent implements OnInit {
         });
       }
     });
+  }
+
+  onDrop(event: CdkDragDrop<any[]>, newStatus: string): void {
+    if (event.previousContainer === event.container) {
+      moveItemInArray(
+        event.container.data,
+        event.previousIndex,
+        event.currentIndex
+      );
+    } else {
+      const movedTask = event.previousContainer.data[event.previousIndex];
+      const taskId = movedTask.id;
+
+      const payload = {
+        description: movedTask.description,
+        folder_id: movedTask.folder_id,
+        start_date: movedTask.startDate,
+        status: newStatus,
+        title: movedTask.title,
+      };
+
+      // ลบออกจาก column เดิม
+      event.previousContainer.data.splice(event.previousIndex, 1);
+
+      // เพิ่มไปยัง column ใหม่
+      event.container.data.splice(event.currentIndex, 0, movedTask);
+
+      // เรียก API เพื่อบันทึกการเปลี่ยนแปลง
+      this.taskService.EditTask(payload, taskId).subscribe({
+        next: (res) => {
+          if (res.message?.toLowerCase() === 'success') {
+            this.notification.success(
+              this.translate.instant('TASK.ALERT_MESSAGE_SUCCESS'),
+              this.translate.instant('TASK.ALERT_DESCRIPTION_SUCCESS')
+            );
+          } else {
+            this.notification.error(
+              this.translate.instant('TASK.ALERT_MESSAGE_ERROR'),
+              this.translate.instant('TASK.ALERT_DESCRIPTION_ERROR')
+            );
+          }
+          this.getTasks();
+        },
+        error: (err) => {
+          this.notification.error(
+            this.translate.instant('TASK.ALERT_MESSAGE_ERROR'),
+            err?.message ||
+              this.translate.instant('TASK.ALERT_DESCRIPTION_ERROR')
+          );
+        },
+      });
+    }
+  }
+
+  onDragStarted(): void {
+    document.body.classList.add('dragging-cursor');
+  }
+
+  onDragEnded(): void {
+    document.body.classList.remove('dragging-cursor');
   }
 }

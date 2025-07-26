@@ -92,6 +92,10 @@
     "ADD_TASK": "New Task",
     "TO_DO": "To Do",
     "PROGRESS": "Progress",
-    "DONE": "Done"
+    "DONE": "Done",
+    "ALERT_MESSAGE_SUCCESS": "Move Task Succes.",
+    "ALERT_DESCRIPTION_SUCCESS": "Task status updated successfully.",
+    "ALERT_MESSAGE_ERROR": "Something went wrong.",
+    "ALERT_DESCRIPTION_ERROR": "Failed to save changes."
   }
 }

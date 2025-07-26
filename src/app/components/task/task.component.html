@@ -15,7 +15,7 @@
           {{ "TASK.BACK" | translate }}
         </button>
         <!-- project name -->
-        <h1 class="text-2xl text-center custom-color-title">
+        <h1 class="text-sm md:text-2xl text-center custom-color-title">
           {{ folderName }}
         </h1>
         <!-- add button -->
@@ -23,7 +23,7 @@
           nz-button
           nzType="default"
           nzSize="large"
-          class="custom-button-add"
+          class="text-sm md:text-[16px] custom-button-add"
           (click)="openAddModal()"
         >
           <nz-icon nzType="plus" />
@@ -33,10 +33,15 @@
       <!-- line -->
       <nz-divider class="custom-devider" />
       <!-- column list background -->
-      <div class="grid grid-cols-3 gap-5">
-        <!-- TO DO -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 md:gap-5">
+        <!-- TO DO Column -->
         <div
           class="min-w-[300px] min-h-[500px] rounded-xl p-4 custom-cloumn-bg"
+          cdkDropList
+          [cdkDropListData]="todoTasks"
+          [cdkDropListConnectedTo]="['inProgressList', 'doneList']"
+          (cdkDropListDropped)="onDrop($event, 'TO_DO')"
+          id="todoList"
         >
           <!-- tab show total -->
           <div class="p-2 mb-6 flex justify-between custom-todo-total">
@@ -46,12 +51,19 @@
             }}</span>
           </div>
           <!-- Task Card -->
-          <div *ngFor="let task of todoTasks">
+          <div
+            *ngFor="let task of todoTasks"
+            cdkDrag
+            (cdkDragStarted)="onDragStarted()"
+            (cdkDragEnded)="onDragEnded()"
+          >
             <div
-              class="w-full p-4 min-h-[110px] mb-3 rounded-md border-l-4 custom-card-to-do transition-transform duration-300 ease-in-out hover:-translate-y-1 hover:cursor-grab"
+              class="w-full p-4 min-h-[110px] mb-3 rounded-md border-l-4 custom-card-to-do transition-transform duration-300 ease-in-out hover:-translate-y-1"
             >
               <h1 class="custom-title-card">{{ task.title }}</h1>
-              <p class="custom-description-card min-h-[25px]">{{ task.description ? task.description : '-' }}</p>
+              <p class="custom-description-card min-h-[25px]">
+                {{ task.description ? task.description : "-" }}
+              </p>
               <!-- Date and function edit and delete -->
               <div class="flex justify-between items-center">
                 <div class="flex items-center gap-2 text-sm custom-date">
@@ -74,9 +86,14 @@
             </div>
           </div>
         </div>
-        <!-- Progress -->
+        <!-- In Progress Column -->
         <div
           class="min-w-[300px] min-h-[500px] rounded-xl p-4 custom-cloumn-bg"
+          cdkDropList
+          [cdkDropListData]="inProgressTasks"
+          [cdkDropListConnectedTo]="['todoList', 'doneList']"
+          (cdkDropListDropped)="onDrop($event, 'IN_PROGRESS')"
+          id="inProgressList"
         >
           <div class="p-2 mb-6 flex justify-between custom-progress-total">
             <span>{{ "TASK.PROGRESS" | translate }}</span>
@@ -87,12 +104,19 @@
             }}</span>
           </div>
           <!-- Task Card -->
-          <div *ngFor="let task of inProgressTasks">
+          <div
+            *ngFor="let task of inProgressTasks"
+            cdkDrag
+            (cdkDragStarted)="onDragStarted()"
+            (cdkDragEnded)="onDragEnded()"
+          >
             <div
-              class="w-full p-4 min-h-[110px] mb-3 rounded-md border-l-4 custom-card-progress transition-transform duration-300 ease-in-out hover:-translate-y-1 hover:cursor-grab"
+              class="w-full p-4 min-h-[110px] mb-3 rounded-md border-l-4 custom-card-progress transition-transform duration-300 ease-in-out hover:-translate-y-1"
             >
               <h1 class="custom-title-card">{{ task.title }}</h1>
-              <p class="custom-description-card min-h-[25px]">{{ task.description ? task.description : '-' }}</p>
+              <p class="custom-description-card min-h-[25px]">
+                {{ task.description ? task.description : "-" }}
+              </p>
               <!-- Date and function edit and delete -->
               <div class="flex justify-between items-center">
                 <div class="flex items-center gap-2 text-sm custom-date">
@@ -115,9 +139,14 @@
             </div>
           </div>
         </div>
-        <!-- Done -->
+        <!-- Done Cloumn -->
         <div
-          class="min-w-[300px] min-h-[500px] rounded-xl p-4 custom-cloumn-bg"
+          class="min-w-[300px] min-h-[500px] rounded-xl p-4 custom-cloumn-bg md:col-span-2 md:mx-auto lg:col-span-1"
+          cdkDropList
+          [cdkDropListData]="doneTasks"
+          [cdkDropListConnectedTo]="['todoList', 'inProgressList']"
+          (cdkDropListDropped)="onDrop($event, 'DONE')"
+          id="doneList"
         >
           <div class="p-2 mb-6 flex justify-between custom-done-total">
             <span>{{ "TASK.DONE" | translate }}</span>
@@ -126,12 +155,19 @@
             }}</span>
           </div>
           <!-- Task Card -->
-          <div *ngFor="let task of doneTasks">
+          <div
+            *ngFor="let task of doneTasks"
+            cdkDrag
+            (cdkDragStarted)="onDragStarted()"
+            (cdkDragEnded)="onDragEnded()"
+          >
             <div
-              class="w-full p-4 min-h-[110px] mb-3 rounded-md border-l-4 custom-card-done transition-transform duration-300 ease-in-out hover:-translate-y-1 hover:cursor-grab"
+              class="w-full p-4 min-h-[110px] mb-3 rounded-md border-l-4 custom-card-done transition-transform duration-300 ease-in-out hover:-translate-y-1"
             >
               <h1 class="custom-title-card">{{ task.title }}</h1>
-              <p class="custom-description-card min-h-[25px]">{{ task.description ? task.description : '-' }}</p>
+              <p class="custom-description-card min-h-[25px]">
+                {{ task.description ? task.description : "-" }}
+              </p>
               <!-- Date and function edit and delete -->
               <div class="flex justify-between items-center">
                 <div class="flex items-center gap-2 text-sm custom-date">

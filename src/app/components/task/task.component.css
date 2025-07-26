@@ -55,10 +55,14 @@
 
 /** custom column bg  */
 .custom-cloumn-bg {
+  overflow-y: none;
+  scrollbar-width: none;
   background: #f8f9fa;
 }
 
 ::ng-deep .dark .custom-cloumn-bg {
+  overflow-y: none;
+  scrollbar-width: none;
   background: #1a202c;
 }
 
@@ -453,3 +457,19 @@
   background-color: #1a202c;
   border-color: #ff4d4f !important;
 }
+
+[cdkDrag] {
+  cursor: grab;
+}
+
+.cdk-drag-preview {
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15);
+  opacity: 0.95;
+  border-radius: 8px;
+  overflow: hidden !important;
+}
+
+::ng-deep body.dragging-cursor {
+  cursor: grabbing !important;
+}
+

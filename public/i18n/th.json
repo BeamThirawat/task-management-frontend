@@ -91,6 +91,10 @@
     "ADD_TASK": "เพิ่มงานใหม่",
     "TO_DO": "ต้องทำ",
     "PROGRESS": "กำลังดำเนินการ",
-    "DONE": "เสร็จแล้ว"
+    "DONE": "เสร็จแล้ว",
+    "ALERT_MESSAGE_SUCCESS": "ย้ายงานสำเร็จ",
+    "ALERT_DESCRIPTION_SUCCESS": "สถานะของงานถูกอัปเดตเรียบร้อยแล้ว",
+    "ALERT_MESSAGE_ERROR": "เกิดข้อผิดพลาด",
+    "ALERT_DESCRIPTION_ERROR": "ไม่สามารถบันทึกการเปลี่ยนแปลงได้"
   }
 }
