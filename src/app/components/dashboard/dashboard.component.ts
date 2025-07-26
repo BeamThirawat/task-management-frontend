@@ -33,7 +33,7 @@ import { NzSpinModule } from 'ng-zorro-antd/spin';
     CommonModule,
     NzButtonModule,
     NgIf,
-    NzSpinModule,
+    NzSpinModule
   ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css',
@@ -259,6 +259,7 @@ export class DashboardComponent implements OnInit {
 
     this.router.navigate(['/task', project_name, folder_id]).then(() => {
       this.isloading = false;
+      window.location.reload();
     });
   }
 }
