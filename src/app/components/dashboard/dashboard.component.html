@@ -34,7 +34,7 @@
       >
         <!-- add-project-card -->
         <div
-          class="w-full sm:w-[400px] md:w-[500px] lg:w-[600px] xl:w-[700px] custom-card"
+          class="max-w-[300px] md:max-w-[350px] lg:max-w-[380px] custom-card"
           (click)="openAddModal()"
         >
           &nbsp;
@@ -49,7 +49,7 @@
         <!-- project list -->
         <div
           *ngFor="let folder of folders"
-          class="group w-[380px] custom-bg-projectlist border-white/30 rounded-2xl gap-4 min-h-[200px] transition-all duration-300 ease-in-out cursor-pointer hover:-translate-y-2"
+          class="group max-w-[300px] md:max-w-[350px] lg:max-w-[380px] custom-bg-projectlist border-white/30 rounded-2xl gap-4 min-h-[200px] transition-all duration-300 ease-in-out cursor-pointer hover:-translate-y-2"
           (click)="openTask(folder.folder_id, folder.folder_name)"
         >
           <div class="p-8 text-start">
@@ -63,7 +63,7 @@
               </h1>
               <!-- icon -->
               <div
-                class="flex-shrink-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 custom-color-icon"
+                class="flex-shrink-0 opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity duration-300 custom-color-icon"
               >
                 <nz-icon
                   nzType="edit"

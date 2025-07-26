@@ -25,6 +25,7 @@ import {
 } from '@angular/cdk/drag-drop';
 import { NzAlertModule } from 'ng-zorro-antd/alert';
 import { NzNotificationService } from 'ng-zorro-antd/notification';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-task',
@@ -42,6 +43,7 @@ import { NzNotificationService } from 'ng-zorro-antd/notification';
     NzSelectModule,
     DragDropModule,
     NzAlertModule,
+    NgIf
   ],
   templateUrl: './task.component.html',
   styleUrl: './task.component.css',
@@ -60,6 +62,7 @@ export class TaskComponent implements OnInit {
   isloading: boolean = false;
   isEditMode: boolean = false;
   taskId: number = 0;
+  isLargeScreen = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -68,8 +71,14 @@ export class TaskComponent implements OnInit {
     private fb: FormBuilder,
     private datePipe: DatePipe,
     private translate: TranslateService,
-    private notification: NzNotificationService
-  ) {}
+    private notification: NzNotificationService,
+    private breakpointObserver: BreakpointObserver
+  ) {
+    this.breakpointObserver.observe('(min-width: 768px)')
+      .subscribe(result => {
+        this.isLargeScreen = result.matches;
+      });
+  }
 
   ngOnInit(): void {
     this.folderId = Number(this.route.snapshot.paramMap.get('id'));

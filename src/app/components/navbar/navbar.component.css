@@ -36,3 +36,7 @@
 ::ng-deep .dark .custom-text-welcome {
     color: white;
 }
+
+::ng-deep .dark .custom-color-icon {
+    color: white;
+}

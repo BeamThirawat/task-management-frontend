@@ -2,38 +2,80 @@
   <div class="max-w-[1350px] min-h-[80vh] mx-auto rounded-2xl custom-bg">
     <div class="w-full h-full p-8">
       <!-- tab back and Add task -->
-      <div class="flex justify-between items-center">
-        <!-- back to dashboard -->
-        <button
-          nz-button
-          nzType="default"
-          nzSize="large"
-          class="custom-button-back"
-          (click)="goBack()"
-        >
-          <nz-icon nzType="left" />
-          {{ "TASK.BACK" | translate }}
-        </button>
-        <!-- project name -->
-        <h1 class="text-sm md:text-2xl text-center custom-color-title">
-          {{ folderName }}
-        </h1>
-        <!-- add button -->
-        <button
-          nz-button
-          nzType="default"
-          nzSize="large"
-          class="text-sm md:text-[16px] custom-button-add"
-          (click)="openAddModal()"
-        >
-          <nz-icon nzType="plus" />
-          {{ "TASK.ADD_TASK" | translate }}
-        </button>
+      <div *ngIf="isLargeScreen; else smallScreen">
+        <div class="flex justify-between items-center">
+          <!-- back to dashboard -->
+          <button
+            nz-button
+            nzType="default"
+            nzSize="large"
+            class="custom-button-back"
+            (click)="goBack()"
+          >
+            <nz-icon nzType="left" />
+            {{ "TASK.BACK" | translate }}
+          </button>
+          <!-- project name -->
+          <h1
+            class="text-sm md:text-[20px] lg:text-2xl text-center custom-color-title"
+          >
+            {{ folderName }}
+          </h1>
+          <!-- add button -->
+          <button
+            nz-button
+            nzType="default"
+            nzSize="large"
+            class="text-sm md:text-[16px] custom-button-add"
+            (click)="openAddModal()"
+          >
+            <nz-icon nzType="plus" />
+            {{ "TASK.ADD_TASK" | translate }}
+          </button>
+        </div>
       </div>
+      <ng-template #smallScreen>
+        <div
+          class="flex flex-col gap-3 md:flex-row md:justify-between md:items-center"
+        >
+          <!-- project name -->
+          <h1
+            class="text-lg text-center text-wrap break-words font-semibold custom-color-title md:text-2xl md:text-center"
+          >
+            {{ folderName }}
+          </h1>
+
+          <!-- add button -->
+          <button
+            nz-button
+            nzType="default"
+            nzSize="large"
+            class="text-sm md:text-[16px] custom-button-add w-full md:w-auto"
+            (click)="openAddModal()"
+          >
+            <nz-icon nzType="plus" />
+            {{ "TASK.ADD_TASK" | translate }}
+          </button>
+
+          <!-- back to dashboard -->
+          <button
+            nz-button
+            nzType="default"
+            nzSize="large"
+            class="custom-button-back w-full md:w-auto"
+            (click)="goBack()"
+          >
+            <nz-icon nzType="left" />
+            {{ "TASK.BACK" | translate }}
+          </button>
+        </div>
+      </ng-template>
       <!-- line -->
       <nz-divider class="custom-devider" />
       <!-- column list background -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 md:gap-5">
+      <div
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 md:gap-5"
+      >
         <!-- TO DO Column -->
         <div
           class="min-w-[300px] min-h-[500px] rounded-xl p-4 custom-cloumn-bg"
@@ -141,7 +183,7 @@
         </div>
         <!-- Done Cloumn -->
         <div
-          class="min-w-[300px] min-h-[500px] rounded-xl p-4 custom-cloumn-bg md:col-span-2 md:mx-auto lg:col-span-1"
+          class="min-w-[300px] min-h-[500px] rounded-xl p-4 custom-cloumn-bg md:col-span-2 md:mx-auto lg:w-full lg:col-span-1"
           cdkDropList
           [cdkDropListData]="doneTasks"
           [cdkDropListConnectedTo]="['todoList', 'inProgressList']"
