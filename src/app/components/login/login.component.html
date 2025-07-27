@@ -1,12 +1,12 @@
 <nz-spin nzSize="large" [nzSpinning]="isLodding" [nzDelay]="500">
   <main
-    class="w-full max-w-[500px] bg-white rounded-lg p-6 sm:p-12 shadow-2xl mx-4 sm:mx-0"
+    class="w-full max-w-[500px] custom-bg-card rounded-lg p-6 sm:p-12 shadow-2xl mx-4 sm:mx-0"
   >
-    <div class="text-black text-center mb-6 sm:mb-8">
-      <h1 class="text-lg sm:text-[22px] font-extrabold">
+    <div class="text-center mb-6 sm:mb-8">
+      <h1 class="custom-title text-lg sm:text-[22px] font-extrabold">
         {{ "LOGIN.SYSTEM" | translate }}
       </h1>
-      <h2 class="text-xl sm:text-[26px] font-semibold">
+      <h2 class="custom-title text-xl sm:text-[26px] font-semibold">
         🔐 {{ "LOGIN.TITLE" | translate }}
       </h2>
     </div>
@@ -19,7 +19,7 @@
       [nzLayout]="'vertical'"
     >
       <nz-form-item>
-        <nz-form-label nzSpan="24" nzFor="email">{{
+        <nz-form-label nzSpan="24" nzFor="email" class="custom-label">{{
           "LOGIN.EMAIL" | translate
         }}</nz-form-label>
         <nz-form-control
@@ -139,10 +139,10 @@
     <div
       class="flex items-center justify-center mt-4 gap-2 text-sm sm:text-base"
     >
-      <div class="font-semibold text-[14px]">
+      <div class="font-semibold text-[14px] custom-question">
         {{ "LOGIN.QUESTION" | translate }}
       </div>
-      <a routerLink="/register" nz-button nzType="link">
+      <a routerLink="/register" nz-button nzType="link" class="custom-link">
         {{ "LOGIN.REGISTER" | translate }}
       </a>
     </div>

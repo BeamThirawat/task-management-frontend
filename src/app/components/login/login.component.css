@@ -1,5 +1,36 @@
+.custom-bg-card {
+  background-color: white;
+}
+
+::ng-deep .dark .custom-bg-card {
+  background-color: #2d3748;
+}
+
+.custom-title {
+  color: black !important;
+}
+
+::ng-deep .dark .custom-title {
+  color: white !important;
+}
+
+::ng-deep .dark .ant-form-item-label > label {
+  color: white !important;
+}
+
+::ng-deep .ant-input:hover {
+  border-color: #4a5568;
+}
+
 .custom-blue-btn {
-  background-color: #3498DB !important;
+  background-color: #3498db !important;
+  color: white !important;
+  border: none !important;
+  border-radius: 5px !important;
+}
+
+::ng-deep .dark .custom-blue-btn {
+  background-color: #2563eb !important;
   color: white !important;
   border: none !important;
   border-radius: 5px !important;
@@ -8,8 +39,110 @@
   background-color: #2980b9 !important;
 }
 
+::ng-deep .dark .custom-blue-btn:hover {
+  background-color: #2571a3 !important;
+}
+
 .custom-input {
-    border-radius: 5px !important;
+  border-radius: 8px !important;
+  border: 2px solid #d9d9d9;
+}
+
+::ng-deep .dark .custom-input {
+  background: #1a202c;
+  border: 2px solid #e9ecef;
+  border-color: #4a5568;
+  color: #e9ecef;
+}
+
+::ng-deep .dark .custom-input:focus {
+  border-color: #8b9dc3;
+  box-shadow: 0 0 0 3px rgba(139, 157, 195, 0.1);
+}
+
+::ng-deep .ant-input-status-error:not(.ant-input-disabled):not(.ant-input-borderless).ant-input, .ant-input-status-error[_ngcontent-ng-c3400068533]:not(.ant-input-disabled):not(.ant-input-borderless).ant-input:hover{
+  background: white;
+}
+
+::ng-deep .dark .ant-input-status-error:not(.ant-input-disabled):not(.ant-input-borderless).ant-input, .ant-input-status-error[_ngcontent-ng-c3400068533]:not(.ant-input-disabled):not(.ant-input-borderless).ant-input:hover {
+  background: #1a202c;
+  border-color: #ff4d4f;
+}
+
+::ng-deep
+  .dark
+  .ant-input-status-error:not(.ant-input-disabled):not(
+    .ant-input-borderless
+  ).ant-input {
+  background: #1a202c;
+  color: #e9ecef;
+}
+
+::ng-deep
+  .dark
+  .ant-input-affix-wrapper:not(.ant-input-affix-wrapper-disabled):hover {
+  background: #1a202c;
+}
+
+::ng-deep
+  .ant-input-affix-wrapper:not(.ant-input-affix-wrapper-disabled):hover {
+  background: white;
+}
+
+::ng-deep .ant-input:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+/** password  */
+::ng-deep .dark .ant-input-affix-wrapper-status-error:not(.ant-input-affix-wrapper-disabled):not(.ant-input-affix-wrapper-borderless).ant-input-affix-wrapper {
+  background: #1a202c;
+  color: #e9ecef;
+}
+
+::ng-deep .dark .ant-input {
+  background: #1a202c;
+  color: #e9ecef;
+}
+
+/** password focus  */
+.ant-input-affix-wrapper-focused {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+::ng-deep .dark .ant-input-affix-wrapper-focused {
+  background: #1a202c;
+  outline: none;
+  border-color: #8b9dc3;
+  box-shadow: 0 0 0 3px rgba(139, 157, 195, 0.1);
+}
+
+.ant-input-affix-wrapper:not(.ant-input-affix-wrapper-disabled):hover {
+  outline: none;
+  border-color: #667eea;
+  border-width: 2px;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+::ng-deep .dark .ant-input-affix-wrapper:not(.ant-input-affix-wrapper-disabled):hover {
+  outline: none;
+  border-color: #8b9dc3;
+  border-width: 2px;
+  box-shadow: 0 0 0 3px rgba(139, 157, 195, 0.1);
+}
+
+/** password hover*/
+.ant-input-status-error[_ngcontent-ng-c3400068533][_ngcontent-ng-c3400068533]:not(.ant-input-disabled):not(.ant-input-borderless).ant-input:hover {
+  background: white;
+  border-color: #ff4d4f;
+}
+
+::ng-deep .dark .ant-input-status-error[_ngcontent-ng-c3400068533][_ngcontent-ng-c3400068533]:not(.ant-input-disabled):not(.ant-input-borderless).ant-input:hover {
+  background: #1a202c;
+  border-color: #ff4d4f;
 }
 
 .custom-divider {
@@ -24,6 +157,21 @@
   border: none !important;
 }
 
+::ng-deep .dark .custom-login-google {
+  background-color: #dc2626 !important;
+  color: white !important;
+  border-radius: 5px !important;
+  border: none !important;
+}
+
 .custom-login-google:hover {
   background-color: #c23321 !important;
+}
+
+::ng-deep .dark .custom-question {
+  color: white;
+}
+
+::ng-deep .dark .custom-link {
+  color: #60a5fa;
 }
