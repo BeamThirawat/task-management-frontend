@@ -1,15 +1,103 @@
+.custom-bg-card {
+  background-color: white;
+}
+
+::ng-deep .dark .custom-bg-card {
+  background-color: #2d3748;
+}
+
+.custom-title {
+  color: black !important;
+}
+
+::ng-deep .dark .custom-title {
+  color: white !important;
+}
+
+::ng-deep .dark .ant-form-item-label > label {
+  color: white !important;
+}
+
+::ng-deep .ant-input:hover {
+  border-color: #4a5568;
+}
+
 .custom-blue-btn {
-  background-color: #3498DB !important;
+  background-color: #3498db !important;
   color: white !important;
   border: none !important;
   border-radius: 5px !important;
 }
+
+::ng-deep .dark .custom-blue-btn {
+  background-color: #2563eb !important;
+  color: white !important;
+  border: none !important;
+  border-radius: 5px !important;
+}
+
 .custom-blue-btn:hover {
   background-color: #2980b9 !important;
 }
 
-.custom-input {
-    border-radius: 5px !important;
+::ng-deep .dark .custom-blue-btn:hover {
+  background-color: #2571a3 !important;
+}
+
+::ng-deep
+  .ant-input-status-error:not(.ant-input-disabled):not(
+    .ant-input-borderless
+  ).ant-input,
+.ant-input-status-error[_ngcontent-ng-c3400068533]:not(.ant-input-disabled):not(
+    .ant-input-borderless
+  ).ant-input:hover {
+  background: white;
+}
+
+::ng-deep
+  .dark
+  .ant-input-status-error:not(.ant-input-disabled):not(
+    .ant-input-borderless
+  ).ant-input,
+.ant-input-status-error[_ngcontent-ng-c3400068533]:not(.ant-input-disabled):not(
+    .ant-input-borderless
+  ).ant-input:hover {
+  background: #1a202c;
+  border-color: #ff4d4f;
+}
+
+::ng-deep
+  .dark
+  .ant-input-status-error:not(.ant-input-disabled):not(
+    .ant-input-borderless
+  ).ant-input {
+  background: #1a202c;
+  color: #e9ecef;
+}
+
+::ng-deep
+  .dark
+  .ant-input-affix-wrapper:not(.ant-input-affix-wrapper-disabled):hover {
+  background: #1a202c;
+}
+
+::ng-deep
+  .ant-input-affix-wrapper:not(.ant-input-affix-wrapper-disabled):hover {
+  background: white;
+}
+
+::ng-deep .dark .ant-input {
+  background: #1a202c;
+  color: #e9ecef;
+  border: 2px solid #e9ecef;
+  border-color: #4a5568;
+  border-radius: 8px !important;
+}
+
+::ng-deep .ant-input:focus {
+  outline: none;
+  border-color: #8b9dc3;
+  box-shadow: 0 0 0 3px rgba(139, 157, 195, 0.1);
 }
 
 .custom-divider {
@@ -24,6 +112,21 @@
   border: none !important;
 }
 
+::ng-deep .dark .custom-login-google {
+  background-color: #dc2626 !important;
+  color: white !important;
+  border-radius: 5px !important;
+  border: none !important;
+}
+
 .custom-login-google:hover {
   background-color: #c23321 !important;
+}
+
+::ng-deep .dark .custom-question {
+  color: white;
+}
+
+::ng-deep .dark .custom-link {
+  color: #60a5fa;
 }
