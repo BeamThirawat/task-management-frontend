@@ -44,6 +44,14 @@ export class TaskService {
       });
   }
 
+  loadTaskByFolder(folderId: number): Observable<IResponse<ITask[]>> {
+    return this.http
+      .get<any>(`${this.ApiEndpoint}/task-management/getTasks?folderId=${folderId}`, {
+        withCredentials: true,
+      })
+      .pipe(timeout(this.ApiTimeout), retry(this.ApiRetry));
+  }
+
   getTask(): Observable<IResponse<ITask>> {
     return this.http
       .get<any>(`${this.ApiEndpoint}/task-management/getTask`, {

@@ -1,0 +1,475 @@
+/** custom bg */
+.custom-bg {
+  background: white;
+}
+
+::ng-deep .dark .custom-bg {
+  background: #2d3748;
+}
+
+/** custom button back */
+.custom-button-back {
+  background: #6c757d;
+  border: none;
+  border-radius: 8px;
+  color: white;
+}
+
+::ng-deep .custom-button-back:hover {
+  background: #5a6268;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15), 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+/** custom button add */
+.custom-button-add {
+  background: #667eea;
+  border-radius: 8px;
+  color: white;
+  border: none;
+}
+
+::ng-deep .custom-button-add:hover {
+  background: #5a6fd8;
+  box-shadow: 0 2px 4px rgba(90, 111, 216, 0.3), 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/** custom devider  */
+::ng-deep .ant-divider {
+  border-top: 2px solid #f0f0f0 !important;
+  margin-bottom: 2rem;
+}
+
+::ng-deep .dark .ant-divider {
+  border-top-color: #4a5568 !important;
+  margin-bottom: 2rem;
+}
+
+/** custom color title */
+.custom-color-title {
+  color: black;
+}
+
+::ng-deep .dark .custom-color-title {
+  color: white;
+}
+
+/** custom column bg  */
+.custom-cloumn-bg {
+  overflow-y: none;
+  scrollbar-width: none;
+  background: #f8f9fa;
+}
+
+::ng-deep .dark .custom-cloumn-bg {
+  overflow-y: none;
+  scrollbar-width: none;
+  background: #1a202c;
+}
+
+/** custom todo total  */
+.custom-todo-total {
+  background: #fff3cd;
+  border-radius: 8px;
+  color: #856404;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+::ng-deep .dark .custom-todo-total {
+  background: #744210;
+  border-radius: 8px;
+  color: #f6e05e;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+/** custom progress total  */
+.custom-progress-total {
+  background: #d4edda;
+  color: #155724;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+::ng-deep .dark .custom-progress-total {
+  background: #083312;
+  color: #68d391;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+/** custom done total  */
+.custom-done-total {
+  background: #d1ecf1;
+  color: #0c5460;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+::ng-deep .dark .custom-done-total {
+  background: #1a365d;
+  color: #63b3ed;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+/** custom-card */
+.custom-card-to-do {
+  background: white;
+  border-left-color: #856404;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+::ng-deep .dark .custom-card-to-do {
+  background: #2d3748;
+  border-left-color: #f6e05e;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+}
+
+.custom-card-progress {
+  background: white;
+  border-left-color: #155724;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+::ng-deep .dark .custom-card-progress {
+  background: #2d3748;
+  border-left-color: #d4edda;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+}
+
+.custom-card-done {
+  background: white;
+  border-left-color: #1a365d;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+::ng-deep .dark .custom-card-done {
+  background: #2d3748;
+  border-left-color: #63b3ed;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+}
+
+/** custom title card */
+.custom-title-card {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+::ng-deep .dark .custom-title-card {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 6px;
+  color: #e9ecef;
+}
+
+/** custom description card */
+.custom-description-card {
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+::ng-deep .dark .custom-description-card {
+  font-size: 14px;
+  margin-bottom: 8px;
+  color: #a0aec0;
+}
+
+/** custom-date  */
+.custom-date {
+  color: #718096;
+}
+
+::ng-deep .dark .custom-date {
+  color: #718096;
+}
+
+/** custom-icon  */
+::ng-deep .dark .custom-icon {
+  color: white;
+}
+
+/** custom modal  */
+::ng-deep .ant-modal-header {
+  border-top-left-radius: 1rem !important;
+  border-top-right-radius: 1rem !important;
+  border-bottom: none;
+  padding-top: 2rem;
+  font-size: 20px;
+}
+
+::ng-deep .ant-modal-close-x {
+  margin-top: 1.6rem;
+  margin-right: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+}
+
+::ng-deep .ant-modal-close-x:hover {
+  background: #f0f0f0;
+  border-radius: 50%;
+}
+
+::ng-deep .dark .ant-modal-close-x {
+  margin-top: 1.6rem;
+  margin-right: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background-color: white;
+  border-radius: 50%;
+  color: #000;
+}
+
+::ng-deep .dark .ant-modal-close-x:hover {
+  color: #000;
+}
+
+::ng-deep .ant-modal-content {
+  border-radius: 1rem !important;
+}
+
+::ng-deep .dark .ant-modal-content {
+  background: #2d3748;
+  border-radius: 1rem !important;
+}
+
+::ng-deep .ant-modal-title {
+  font-size: 24px !important;
+  font-weight: 600 !important;
+}
+
+::ng-deep .dark .ant-modal-title {
+  font-size: 24px !important;
+  font-weight: 600 !important;
+  color: #fff;
+}
+
+::ng-deep .dark .ant-modal-header {
+  background: #2d3748;
+  border-top-left-radius: 1rem !important;
+  border-top-right-radius: 1rem !important;
+  color: white;
+}
+
+.custom-input {
+  border-radius: 8px !important;
+  border-width: 2px !important;
+  border-color: #d9d9d9;
+  padding: 8px;
+}
+
+.custom-input:hover {
+  border-width: 2px !important;
+  border-color: #d9d9d9 !important;
+}
+
+.custom-input:focus {
+  outline: none;
+  border-width: 2px;
+  border-color: #667eea !important;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+::ng-deep .dark .custom-input {
+  border-radius: 8px !important;
+  border-width: 2px !important;
+  background: #1a202c;
+  color: #e9ecef;
+  border-color: #4a5568;
+}
+
+::ng-deep .dark .custom-input:hover {
+  border-radius: 8px !important;
+  border-width: 2px !important;
+  background: #1a202c !important;
+  border-color: #4a5568 !important;
+}
+
+::ng-deep .dark .custom-input:focus {
+  outline: none;
+  border-width: 2px;
+  border-color: #8b9dc3 !important;
+  box-shadow: 0 0 0 3px rgba(139, 157, 195, 0.1);
+}
+
+::ng-deep
+  .dark
+  .ant-input-status-error:not(.ant-input-disabled):not(
+    .ant-input-borderless
+  ).ant-input {
+  background: #1a202c;
+  border-color: #ff4d4f;
+}
+
+.custom-button {
+  border-radius: 8px !important;
+  border-width: 2px !important;
+  border-color: #667eea !important;
+  color: #667eea !important;
+}
+
+.custom-button:hover {
+  color: #fff !important;
+  background: #667eea !important;
+}
+
+::ng-deep .dark .custom-button {
+  border-radius: 8px !important;
+  border-width: 2px !important;
+  background: #2d3748 !important;
+  color: #8b9dc3 !important;
+  border-color: #8b9dc3 !important;
+}
+
+::ng-deep .dark .custom-button:hover {
+  background: #8b9dc3 !important;
+  color: #1a1a2e !important;
+}
+
+.custom-button-save {
+  border-radius: 8px !important;
+  border-width: 2px !important;
+}
+
+.custom-button-save:not([disabled]) {
+  background-color: #667eea !important;
+  color: white !important;
+  border-color: #667eea !important;
+  cursor: pointer;
+}
+
+::ng-deep .dark .ant-btn[disabled] {
+  background-color: #2f2f2f;
+  color: #888888;
+  border: 1px solid #444444;
+  cursor: not-allowed;
+  opacity: 1;
+}
+
+/* * custom text label */
+.custom-text-label > label {
+  color: black;
+}
+
+::ng-deep .dark .custom-text-label > label {
+  color: white !important;
+}
+
+/** custom date picker  */
+::ng-deep .custom-date-picker {
+  border-radius: 8px !important;
+  border-width: 2px !important;
+}
+
+::ng-deep .custom-date-picker:hover {
+  border-radius: 8px !important;
+  border-width: 2px !important;
+  border-color: #d9d9d9 !important;
+}
+
+::ng-deep .ant-picker-focused {
+  border-color: #667eea !important;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+::ng-deep .dark .custom-date-picker {
+  border-radius: 8px !important;
+  border-width: 2px !important;
+  background: #1a202c;
+  border-color: #4a5568;
+  color: #e9ecef;
+}
+
+::ng-deep .dark .ant-picker-suffix {
+  color: white;
+}
+
+::ng-deep .dark .ant-picker-input > input {
+  font-size: 14px;
+  color: white;
+}
+
+/** custom dropdown  */
+::ng-deep .custom-dropdown .ant-select-item {
+  font-size: 16px;
+}
+
+::ng-deep .ant-select:not(.ant-select-customize-input) .ant-select-selector {
+  border-radius: 8px !important;
+  border-width: 2px !important;
+  border-color: #d9d9d9 !important;
+}
+
+::ng-deep
+  .ant-select-focused:not(.ant-select-disabled).ant-select:not(
+    .ant-select-customize-input
+  )
+  .ant-select-selector {
+  border-color: #667eea !important;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+::ng-deep
+  .dark
+  .ant-select:not(.ant-select-customize-input)
+  .ant-select-selector {
+  border-radius: 8px !important;
+  border-width: 2px !important;
+  background: #1a202c;
+  color: #e9ecef;
+  border-color: #4a5568 !important;
+}
+
+::ng-deep
+  .dark
+  .ant-select-focused:not(.ant-select-disabled).ant-select:not(
+    .ant-select-customize-input
+  )
+  .ant-select-selector {
+  outline: none;
+  border-width: 2px;
+  border-color: #8b9dc3 !important;
+  box-shadow: 0 0 0 3px rgba(139, 157, 195, 0.1);
+}
+/** custom placeholder  */
+::ng-deep .ant-select-lg {
+  font-size: 14px;
+  color: black;
+}
+
+::ng-deep
+  .dark
+  .ant-select-status-error.ant-select:not(.ant-select-disabled):not(
+    .ant-select-customize-input
+  ):not(.ant-pagination-size-changer)
+  .ant-select-selector {
+  background-color: #1a202c;
+  border-color: #ff4d4f !important;
+}
+
+[cdkDrag] {
+  cursor: grab;
+}
+
+.cdk-drag-preview {
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15);
+  opacity: 0.95;
+  border-radius: 8px;
+  overflow: hidden !important;
+}
+
+::ng-deep body.dragging-cursor {
+  cursor: grabbing !important;
+}
+

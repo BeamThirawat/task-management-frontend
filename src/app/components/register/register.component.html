@@ -1,9 +1,9 @@
 <nz-spin nzSize="large" [nzSpinning]="islodding">
   <main
-    class="w-full max-w-[400px] bg-white rounded-lg p-4 sm:p-12 shadow-2xl mx-4 sm:mx-0"
+    class="w-full max-w-[400px] custom-bg-card rounded-lg p-4 sm:px-10 sm:py-6 shadow-2xl mx-4 sm:mx-0"
   >
-    <div class="text-black text-center mb-6 sm:mb-8">
-      <h2 class="text-xl sm:text-[26px] font-semibold">
+    <div class="text-center mb-6 sm:mb-8">
+      <h2 class="custom-title text-xl sm:text-[26px] font-semibold">
         🔐 {{ "REGISTER.TITLE" | translate }}
       </h2>
     </div>
@@ -193,10 +193,10 @@
     <div
       class="flex items-center justify-center mt-4 gap-2 text-sm sm:text-base"
     >
-      <div class="font-semibold text-[14px]">
+      <div class="custom-question font-semibold text-[14px]">
         {{ "REGISTER.QUESTION" | translate }}
       </div>
-      <a routerLink="/login" nz-button nzType="link">
+      <a routerLink="/login" nz-button nzType="link" class="custom-link">
         {{ "REGISTER.LOGIN" | translate }}
       </a>
     </div>

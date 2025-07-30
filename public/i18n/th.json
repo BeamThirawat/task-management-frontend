@@ -70,12 +70,31 @@
     "TITLE": "เพิ่มโปรเจกต์ใหม่",
     "EDIT_TITLE": "แก้ไขโปรเจกต์",
     "PROJECT": "ชื่อโปรเจกต์",
+    "TITLE_TASK": "เพิ่มงานใหม่",
+    "EDIT_TITLE_TASK": "แก้ไขงาน",
+    "TASK_NAME": "ชื่องาน",
     "DESCRIPTION": "คำอธิบาย",
     "PROJECTNAME_PLACEHOLDER": "กรอกชื่อโปรเจกต์ของคุณ",
     "DESCRIPTION_PLACEHOLDER": "กรอกรายละเอียดโปรเจกต์ของคุณ",
-    "SAVE_SUCCESS": "บันทึกโปรเจกต์สำเร็จ",
-    "SAVE_ERROR": "บันทึกโปรเจกต์ไม่สำเร็จ โปรดลองอีกครั้ง",
+    "DESCRIPTION_TASK_PLACEHOLDER": "กรอกรายละเอียดงานของคุณ",
+    "TASK_STATUS_PLACEHOLDER": "กรอกสถานะของคุณ",
+    "TASK_NAME_PLACEHOLDER": "กรอกชื่องานของคุณ",
+    "TASK_SARTDATE": "วันที่เริ่มงาน",
+    "STATUS": "สถานะ",
+    "SAVE_SUCCESS": "บันทึกสำเร็จ",
+    "SAVE_ERROR": "บันทึกไม่สำเร็จ โปรดลองอีกครั้ง",
     "CANCLE": "ยกเลิก",
     "SAVE": "บันทึก"
+  },
+  "TASK": {
+    "BACK": "กลับ",
+    "ADD_TASK": "เพิ่มงานใหม่",
+    "TO_DO": "ต้องทำ",
+    "PROGRESS": "กำลังดำเนินการ",
+    "DONE": "เสร็จแล้ว",
+    "ALERT_MESSAGE_SUCCESS": "ย้ายงานสำเร็จ",
+    "ALERT_DESCRIPTION_SUCCESS": "สถานะของงานถูกอัปเดตเรียบร้อยแล้ว",
+    "ALERT_MESSAGE_ERROR": "เกิดข้อผิดพลาด",
+    "ALERT_DESCRIPTION_ERROR": "ไม่สามารถบันทึกการเปลี่ยนแปลงได้"
   }
 }
